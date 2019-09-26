@@ -1,6 +1,6 @@
+import numpy as np
 from keras.datasets import cifar10
 from sklearn.preprocessing import LabelBinarizer
-import numpy as np
 
 
 def get_cifar10():
@@ -21,3 +21,6 @@ def get_cifar10():
     testy = lb.fit_transform(testy)
 
     return trainx, trainy, testx, testy
+
+
+label_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
