@@ -4,6 +4,7 @@ def swap(lst, a, b):
     lst[b] = tmp
 
 
+@DeprecationWarning
 class A1:
     def __init__(self, A):
         self.A = A
@@ -31,6 +32,14 @@ class A1:
 
     def append(self, item):
         self.A.append(item)
+
+
+class ArrayFromOne(list):
+    def __getitem__(self, item):
+        return super().__getitem__(item - 1)
+
+    def __setitem__(self, key, value):
+        super().__setitem__(key - 1, value)
 
 
 def new_range(start, end, step=1):
