@@ -3,7 +3,7 @@ import os
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html']
+black_list = ['index.html', '.git']
 
 start = '''
 <html>
@@ -57,7 +57,7 @@ def list_dirs(path):
     return result
 
 
-def generate_index(path, dir=None):
+def generate_index(path):
     all = os.listdir(path)
 
     html = start
@@ -77,18 +77,15 @@ def generate_index(path, dir=None):
         html += line
     html += '</ul>'
     html += end
-    if dir is None:
-        with open('index.html', 'w') as f:
-            f.write(html)
-    else:
-        with open(os.path.join(dir, 'index.html'), 'w') as f:
-            f.write(html)
-    # print(html)
+    # with open(os.path.sep.join([path, 'index.html']), 'w') as f:
+    #     f.write(html)
+    print(html)
 
     dirs = list_dirs(path)
     for dir in dirs:
-        generate_index(os.path.join(path, dir), dir=dir)
+        if dir in black_list:
+            continue
+        generate_index(os.path.join(path, dir))
 
-
-if __name__ == '__main__':
-    generate_index(path)
+    if __name__ == '__main__':
+        generate_index(path)
