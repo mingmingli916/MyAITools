@@ -39,53 +39,38 @@ end = '''
 '''
 
 
-def list_files(path):
-    result = []
-    all = list_dirs(path)
-    for a in all:
-        if os.path.isfile(os.path.join(path, a)):
-            result.append(a)
-    return result
+def join(lst):
+    if '' in lst:
+        lst.remove('')
+    return os.path.sep.join(lst)
 
 
-def list_dirs(path):
-    result = []
-    all = os.listdir(path)
-    for a in all:
-        if os.path.isdir(os.path.join(path, a)):
-            result.append(a)
-    return result
-
-
-def generate_index(path, dir):
-    all = os.listdir(path)
+def generate_index(base_path, inter_path=''):
+    refs = os.listdir(join([base_path, inter_path]))
 
     html = start
     html += '<ul>'
-    for a in all:
-        if a in black_list:
+
+    for ref in refs:
+        if ref in black_list:
             continue
-        if dir is not None:
-            rp = os.path.sep.join([website, dir, a])
-        else:
-            rp = os.path.sep.join([website, a])
+
+        if os.path.isdir(join([base_path, inter_path, ref])):
+            generate_index(base_path, join([inter_path, ref]))
+
+        web_path = join([website, inter_path, ref])
 
         line = '<li>'
-        line += '<a href="{}">{}</a>'.format(rp, a)
+        line += '<a href="{}">{}</a>'.format(web_path, ref)
         line += '</li>'
         line += '\n'
         html += line
     html += '</ul>'
     html += end
-    # with open(os.path.sep.join([path, 'index.html']), 'w') as f:
-    #     f.write(html)
-    print(html)
 
-    dirs = list_dirs(path)
-    for dir in dirs:
-        if dir in black_list:
-            continue
-        generate_index(os.path.join(path, dir), dir)
+    with open(join([base_path, inter_path, 'index.html']), 'w') as f:
+        f.write(html)
+    # print(html)
 
 
 if __name__ == '__main__':
