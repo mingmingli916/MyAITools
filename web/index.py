@@ -31,7 +31,7 @@ end = '''
   <hr>
 
   <div id="github">
-    <a class="github" href="https://github.com/hackchyson/">GitHub</a>
+    <p>GitHub: <a class="github" href="https://github.com/hackchyson/">hackchyson</a></p>
   </div>
   
 </body>
