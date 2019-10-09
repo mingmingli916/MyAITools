@@ -87,5 +87,5 @@ def generate_index(path):
             continue
         generate_index(os.path.join(path, dir))
 
-    if __name__ == '__main__':
-        generate_index(path)
+if __name__ == '__main__':
+    generate_index(path)
