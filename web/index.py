@@ -91,10 +91,4 @@ def generate_index(path, dir=None):
 
 
 if __name__ == '__main__':
-    # files = list_files(path)
-    # for i in files:
-    #     print(i)
-    # dirs = list_dirs(path)
-    # for i in dirs:
-    #     print(i)
     generate_index(path)
