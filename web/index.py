@@ -57,7 +57,7 @@ def list_dirs(path):
     return result
 
 
-def generate_index(path):
+def generate_index(path, dir):
     all = os.listdir(path)
 
     html = start
@@ -85,7 +85,8 @@ def generate_index(path):
     for dir in dirs:
         if dir in black_list:
             continue
-        generate_index(os.path.join(path, dir))
+        generate_index(os.path.join(path, dir), dir)
+
 
 if __name__ == '__main__':
     generate_index(path)
