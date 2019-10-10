@@ -15,6 +15,14 @@ from ..utils import label_utils
 
 class FeatureExtractor:
     def __init__(self, model, vector_length, target_size, batch_size=32, buffer_size=100):
+        """
+
+        :param model: model used to extract feature
+        :param vector_length: the vector length extracted by the model
+        :param target_size: the input image size to model
+        :param batch_size: batch size to model
+        :param buffer_size: buffer size during writing data into HDF5 file
+        """
         self.model = model
         self.vector_length = vector_length
         self.target_size = target_size
