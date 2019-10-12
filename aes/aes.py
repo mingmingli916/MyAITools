@@ -2,19 +2,35 @@ import os
 import base64
 import argparse
 from Crypto.Cipher import AES
+import sys
+
+default_file = os.path.join(os.environ['HOME'], '.aes')
 
 # commandline arguments
-ap = argparse.ArgumentParser()
-ap.add_argument('-k', '--key', required=True, help='the key used in encryption and decryption')
-ap.add_argument('-m', '--mode', default='enc',
-                help='mode of encrypt or decrypt. default is enc. available value: enc|dec')
-ap.add_argument('-i', '--input', help='input string you want to append to a file')
-ap.add_argument('-f', '--file', help='file you want to append to or decrypt from.')
-ap.add_argument('-e', '--encoding', default='utf8', help='encoding use in encryption and decryption. default is utf8')
+ap = argparse.ArgumentParser(description='Encrypt or decrypt to save or display something that is secret.')
+group = ap.add_mutually_exclusive_group()
+group.add_argument('-i', '--input', help='input string you want to encrypt or decrypt')
+group.add_argument('-f', '--file', help='file you want to encrypt')
+
+ap.add_argument('-k', '--key', default='123456', help='the key used in encryption and decryption')
+ap.add_argument('-m', '--mode', default='enc', help='mode of encrypt or decrypt')
+ap.add_argument('-d', '--database', default=default_file, help='file used to save encrypted thing')
+ap.add_argument('-e', '--encoding', default='utf8', help='encoding use in encryption and decryption')
+ap.add_argument('-v', '--verbose', action='store_true', help='show verbose information')
 args = vars(ap.parse_args())
 
-if args['file'] is None:
-    args['file'] = os.path.join(os.environ['HOME'], '.aes')
+if args['verbose']:
+    print('default file is {}'.format(default_file))
+    print('default key is 123456')
+    print('default mode is enc. Available value: enc or dec')
+    print('default encoding is utf8')
+
+    print("""
+    example1: python aes.py -i 'hello world' # encrypt 'hello world' into database;
+    example2: python aes.py -m dec # decrypt the content in database;
+    example3: python aes.py -i my_file -k 111 # encrypt my_file with key 111 and save to database; 
+    """)
+    sys.exit(0)
 
 
 # if the text is not a multiple of 16, add some characters
@@ -44,14 +60,29 @@ def dec(line):
     return decrypted_text
 
 
-if args['mode'] == 'enc':
-    assert args['input'] is not None, 'the input should not be none'
-    with open(args['file'], 'a') as fh:
-        fh.write(enc(args['input']))
-elif args['mode'] == 'dec':
-    assert os.path.exists(args['file']), 'the file does not exist'
-    with open(args['file'], 'r') as fh:
+def dec_file(path):
+    with open(path, 'r') as fh:
         for line in fh:
             print(dec(line))
+
+
+if args['mode'] == 'enc':
+    with open(args['database'], 'a') as fh:
+        if args['input'] is not None:
+            fh.write(enc(args['input']))
+        elif args['file'] is not None:
+            assert os.path.exists(args['file']), 'the file does not exist'
+            with open(args['file']) as f:
+                for line in f:
+                    fh.write(enc(line))
+        else:
+            print('Either of input or file should not be None.')
+
+elif args['mode'] == 'dec':
+    if args['input'] is not None:
+        print(dec(args['input']))
+    else:
+        dec_file(args['database'])
+
 else:
     print('the mode should be enc or dec')
