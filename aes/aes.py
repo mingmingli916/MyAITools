@@ -4,7 +4,7 @@ import argparse
 from Crypto.Cipher import AES
 import sys
 
-default_file = os.path.join(os.environ['HOME'], '.aes')
+default_file = os.path.sep.join([os.environ['HOME'], 'notes', '.aes'])
 
 # commandline arguments
 ap = argparse.ArgumentParser(description='Encrypt or decrypt to save or display something that is secret.')
@@ -17,6 +17,8 @@ ap.add_argument('-m', '--mode', default='enc', help='mode of encrypt or decrypt'
 ap.add_argument('-d', '--database', default=default_file, help='file used to save encrypted thing')
 ap.add_argument('-e', '--encoding', default='utf8', help='encoding use in encryption and decryption')
 ap.add_argument('-v', '--verbose', action='store_true', help='show verbose information')
+ap.add_argument('-o', '--overwrite', default='a', action='store_const', const='w',
+                help='overwrite the content in database')
 args = vars(ap.parse_args())
 
 if args['verbose']:
@@ -56,7 +58,7 @@ def enc(line):
 def dec(line):
     to_decrypt_bin = base64.decodebytes(bytes(line, encoding=args['encoding']))
     decrypted_bin = aes.decrypt(to_decrypt_bin)
-    decrypted_text = str(decrypted_bin.decode('utf8')).rstrip(' ')
+    decrypted_text = str(decrypted_bin.decode('utf8')).rstrip(' ').strip('\n')
     return decrypted_text
 
 
@@ -67,7 +69,7 @@ def dec_file(path):
 
 
 if args['mode'] == 'enc':
-    with open(args['database'], 'a') as fh:
+    with open(args['database'], args['overwrite']) as fh:
         if args['input'] is not None:
             fh.write(enc(args['input']))
         elif args['file'] is not None:
