@@ -4,6 +4,7 @@ path = '/var/www/html'
 website = 'http://chyson.net'
 
 black_list = ['index.html', '.git']
+white_list = ['html', 'pdf', 'hml']
 
 start = '''
 <html>
@@ -14,7 +15,7 @@ start = '''
 <meta name="description" content="Hack Chyson's Blog">
 <meta name="keywords" content="blog, html, httpd">
 <link rel="stylesheet" type="text/css" href="./css/index.css">
-<title>chyson's blog</title>
+<title>Chyson's Blog</title>
 </head>
 
 <body>
@@ -66,6 +67,15 @@ def generate_index(base_path, inter_path=''):
         line += '</li>'
         line += '\n'
         html += line
+
+        # elif ref.split('.')[-1] in white_list:
+        #     web_path = join([website, inter_path, ref])
+        #
+        #     line = '<li>'
+        #     line += '<a href="{}">{}</a>'.format(web_path, ref)
+        #     line += '</li>'
+        #     line += '\n'
+        #     html += line
     html += '</ul>'
     html += end
 
