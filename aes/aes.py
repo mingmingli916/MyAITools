@@ -49,6 +49,7 @@ aes = AES.new(key_bin, AES.MODE_ECB)  # init cipher
 
 # encrypt a line into a encrypted line
 def enc(line):
+    line = line.strip('\n') + '\n'
     encrypted_bin = aes.encrypt(multiple_of_16(line))
     encrypted_text = str(base64.encodebytes(encrypted_bin), encoding=args['encoding'])
     return encrypted_text
@@ -58,7 +59,7 @@ def enc(line):
 def dec(line):
     to_decrypt_bin = base64.decodebytes(bytes(line, encoding=args['encoding']))
     decrypted_bin = aes.decrypt(to_decrypt_bin)
-    decrypted_text = str(decrypted_bin.decode('utf8')).rstrip(' ').strip('\n')
+    decrypted_text = str(decrypted_bin.decode('utf8')).rstrip(' ').rstrip('\n')
     return decrypted_text
 
 
@@ -82,7 +83,7 @@ if args['mode'] == 'enc':
 
 elif args['mode'] == 'dec':
     if args['input'] is not None:
-        print(dec(args['input']))
+        print(dec(args['input']), sep='')
     else:
         dec_file(args['database'])
 
