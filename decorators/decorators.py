@@ -136,3 +136,4 @@ def complete_comparisons(cls):
     cls.__gt__ = lambda self, other: cls.__lt__(other, self)
     cls.__le__ = lambda self, other: not cls.__lt__(other, self)
     cls.__ge__ = lambda self, other: not cls.__lt__(self, other)
+    return cls
