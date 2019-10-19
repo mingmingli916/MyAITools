@@ -129,7 +129,7 @@ def strictly_typed(function):
 
 
 def complete_comparisons(cls):
-    assert cls.__lt__ is not object.__lt__, '{} must define < and ideally =='.format(cls.__name__)
+    assert cls.__lt__ is not object.__lt__, "{0} must define < and ideally ==".format(cls.__name__)
     if cls.__eq__ is object.__eq__:
         cls.__eq__ = lambda self, other: not (cls.__lt__(self, other) or cls.__lt__(other, self))
     cls.__ne__ = lambda self, other: not cls.__eq__(self, other)
