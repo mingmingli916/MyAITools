@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
+from chyson.decorators import decorators
 import decorators
 
 decorators.basicConfig(level=decorators.INFO,
