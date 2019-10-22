@@ -1,12 +1,11 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
-from chyson.decorators import decorators
-import decorators
+import logging
 
-decorators.basicConfig(level=decorators.INFO,
-                       filename='/home/hack/log/smtp.log',
-                       filemode='a')
+logging.basicConfig(level=logging.INFO,
+                    filename='/home/hack/log/smtp.log',
+                    filemode='a')
 coding = 'utf-8'
 
 sender = 'chyson@aliyun.com'
@@ -26,6 +25,6 @@ message['Subject'] = Header(subject, coding)
 try:
     smtp_obj = smtplib.SMTP('localhost')
     smtp_obj.sendmail(sender, receivers, message.as_string())
-    decorators.info('Email Sent Successfully.')
+    logging.info('Email Sent Successfully.')
 except smtplib.SMTPException as e:
-    decorators.error('Email Sent Failed.')
+    logging.error('Email Sent Failed.')
