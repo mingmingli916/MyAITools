@@ -3,6 +3,11 @@ from lxml import etree
 
 
 def get_msg(url='http://www.tianqi.com/tongzhou/life.html'):
+    """
+    Crawl daily weather information from the specified url.
+    :param url:
+    :return: weather information string
+    """
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
     response = requests.get(url, headers=headers)

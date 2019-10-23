@@ -41,6 +41,12 @@ end = '''
 
 
 def join(lst):
+    """
+    Remove the effect of the empty string.
+    This makes the a convenient way of joining path.
+    :param lst:
+    :return:
+    """
     if '' in lst:
         lst.remove('')
     return os.path.sep.join(lst)
