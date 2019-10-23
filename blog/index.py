@@ -23,7 +23,7 @@ start = '''
 <h1 style="text-align:center"> Hack Chyson's Blog</h1>
 
 <div id="motto">
-  <p>The best way to learn something is to use it.</p>
+  <p>THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>
 </div>
 <hr>
 '''
