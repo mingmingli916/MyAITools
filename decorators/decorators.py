@@ -6,6 +6,28 @@ import tempfile
 
 
 def delegate(attribute_name, method_names):
+    """
+    Delegate the method_names to attribute_name
+    :param attribute_name:
+    :param method_names:
+    :return:
+
+    Example:
+    _identitiy = lambda x: x
+
+    @delegate('__list', ('pop', '__delitem__', '__getitem__', '__iter__', '__reversed__', '__len__', '__str__'))
+    class SortedList:
+        def __init__(self, sequence=None, key=None):
+            self.__key = key or _identitiy
+            assert hasattr(self.__key, '__call__')
+            if sequence is None:
+                self.__list = []
+            elif isinstance(sequence, SortedList) and sequence.key == self.__key:
+                self.__list = sequence.__list[:]
+            else:
+                self.__list = sorted(list(sequence), key=self.__key)
+    """
+
     def decorator(cls):
         # We must use nonlocal so that the nested function uses the attribute_name from
         # the outer scope rather than attempting to use one from its own scope.
@@ -21,6 +43,12 @@ def delegate(attribute_name, method_names):
 
 
 def positive_result(function):
+    """
+    Assert the result be positive.
+    :param function:
+    :return:
+    """
+
     @functools.wraps(function)
     # simplify
     # wrapper.__name__ = function.__name__
@@ -39,6 +67,13 @@ def positive_result(function):
 # function with the parameters we want and that returns a decorator which can
 # then decorate the function that follows it.
 def bounded(minimum, maximum):
+    """
+    Bound the output between the minimum and maximum.
+    :param minimum:
+    :param maximum:
+    :return:
+    """
+
     def decorator(function):
         @functools.wraps(function)
         def wrapper(*args, **kwargs):
@@ -55,6 +90,11 @@ def bounded(minimum, maximum):
 
 
 def logged(file=None):
+    """
+    Record the result into the specified log file.
+    :param file:
+    :return:
+    """
     if __debug__:
         logger = logging.getLogger('Logger')
         logger.setLevel(logging.DEBUG)
@@ -137,6 +177,11 @@ def strictly_typed(function):
 
 
 def complete_comparisons(cls):
+    """
+    Provide the < or __lt__ function, the result comparison is created automatically.
+    :param cls:
+    :return:
+    """
     assert cls.__lt__ is not object.__lt__, "{0} must define < and ideally ==".format(cls.__name__)
     if cls.__eq__ is object.__eq__:
         cls.__eq__ = lambda self, other: not (cls.__lt__(self, other) or cls.__lt__(other, self))
@@ -145,3 +190,19 @@ def complete_comparisons(cls):
     cls.__le__ = lambda self, other: not cls.__lt__(other, self)
     cls.__ge__ = lambda self, other: not cls.__lt__(self, other)
     return cls
+
+
+def coroutine(function):
+    """
+    call next() function before the first yield
+    :param function: coroutine
+    :return:
+    """
+
+    @functools.wraps(function)
+    def wrapper(*args, **kwargs):
+        generator = function(*args, **kwargs)
+        next(generator)
+        return generator
+
+    return wrapper
