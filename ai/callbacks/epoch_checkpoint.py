@@ -1,5 +1,5 @@
-from keras.callbacks import Callback
 import os
+from keras.callbacks import Callback
 
 
 class EpochCheckpoint(Callback):

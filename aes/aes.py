@@ -1,8 +1,9 @@
-import os
-import base64
 import argparse
-from Crypto.Cipher import AES
+import base64
 import sys
+
+import os
+from Crypto.Cipher import AES
 
 default_file = os.path.sep.join([os.environ['HOME'], 'notes', '.aes'])
 

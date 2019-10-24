@@ -1,8 +1,9 @@
-from keras.callbacks import BaseLogger
+import json
+
 import matplotlib.pyplot as plt
 import numpy as np
-import json
 import os
+from keras.callbacks import BaseLogger
 
 
 class TrainingMonitor(BaseLogger):

@@ -1,7 +1,7 @@
-from keras.models import Sequential
-from keras.layers.convolutional import Conv2D, MaxPooling2D
-from keras.layers.core import Activation, Flatten, Dense
 from keras import backend as K
+from keras.layers.convolutional import Conv2D, MaxPooling2D
+from keras.layers.core import Activation, Dense, Flatten
+from keras.models import Sequential
 
 
 def LeNet(width, height, depth, classes):

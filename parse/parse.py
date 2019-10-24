@@ -1,8 +1,7 @@
-import requests
-from chyson.decorators.decorators import coroutine
 import re
-import functools
-import sys
+
+import requests
+from chyson.decorators.coroutine import coroutine
 
 
 @coroutine

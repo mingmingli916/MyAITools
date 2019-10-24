@@ -1,11 +1,16 @@
-from keras.layers.normalization import BatchNormalization
-from keras.layers.convolutional import Conv2D, AveragePooling2D, MaxPooling2D, ZeroPadding2D
-from keras.layers.core import Activation, Dense
-from keras.layers import Flatten, Input
-from keras.models import Model
-from keras.layers import add
-from keras.regularizers import l2
 from keras import backend as K
+from keras.layers import Flatten
+from keras.layers import Input
+from keras.layers import add
+from keras.layers.convolutional import AveragePooling2D
+from keras.layers.convolutional import Conv2D
+from keras.layers.convolutional import MaxPooling2D
+from keras.layers.convolutional import ZeroPadding2D
+from keras.layers.core import Activation
+from keras.layers.core import Dense
+from keras.layers.normalization import BatchNormalization
+from keras.models import Model
+from keras.regularizers import l2
 
 
 def residual_module(x, filters, stride, chan_dim, reduce=False, reg=.0001, bn_eps=2e-5, bn_mon=.9):

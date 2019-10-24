@@ -1,7 +1,7 @@
-from keras.preprocessing.image import load_img
-from keras.preprocessing.image import img_to_array
-from keras.preprocessing.image import ImageDataGenerator
 import numpy as np
+from keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing.image import img_to_array
+from keras.preprocessing.image import load_img
 
 
 def augment(image_path, save_to_dir, save_prefix='augmented', save_format='jpg', num=10,

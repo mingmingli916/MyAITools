@@ -1,5 +1,5 @@
-import imutils
 import cv2
+import imutils
 
 
 class AspectAwarePreprocessor:
