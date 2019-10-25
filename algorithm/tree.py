@@ -1,10 +1,10 @@
 def left_rotate(T, center, func):
     # local operation while maintaining the binary search tree property
     # http://chyson.net/notes/algorithm/introduction-to-algorithms/note.html#sec-4-4-2
-    point = center.right  # set y
+    point = center.right  # set point
 
     # beta part in the fig
-    center.right = y.left
+    center.right = point.left
     if point.left != T.nil:
         point.left.p = center
 
