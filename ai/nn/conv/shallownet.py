@@ -1,7 +1,9 @@
-from keras.models import Sequential
-from keras.layers.convolutional import Conv2D
-from keras.layers.core import Activation, Flatten, Dense
 from keras import backend as K
+from keras.layers.convolutional import Conv2D
+from keras.layers.core import Activation
+from keras.layers.core import Dense
+from keras.layers.core import Flatten
+from keras.models import Sequential
 
 
 def ShallowNet(width, height, depth, classes):

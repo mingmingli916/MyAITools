@@ -1,9 +1,8 @@
-from keras.models import Sequential
-from keras.layers.normalization import BatchNormalization
-from keras.layers.convolutional import Conv2D, MaxPooling2D
-from keras.layers.core import Activation, Flatten, Dense, Dropout
 from keras import backend as K
-
+from keras.layers.convolutional import Conv2D, MaxPooling2D
+from keras.layers.core import Activation, Dense, Dropout, Flatten
+from keras.layers.normalization import BatchNormalization
+from keras.models import Sequential
 
 
 def MiniVGGNet(width, height, depth, classes):

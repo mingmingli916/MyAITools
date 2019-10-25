@@ -23,7 +23,7 @@ start = '''
 <h1 style="text-align:center"> Hack Chyson's Blog</h1>
 
 <div id="motto">
-  <p>The best way to learn something is to use it.</p>
+  <p>THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>
 </div>
 <hr>
 '''
@@ -41,6 +41,12 @@ end = '''
 
 
 def join(lst):
+    """
+    Remove the effect of the empty string.
+    This makes the a convenient way of joining path.
+    :param lst:
+    :return:
+    """
     if '' in lst:
         lst.remove('')
     return os.path.sep.join(lst)

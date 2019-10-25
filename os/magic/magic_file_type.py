@@ -3,6 +3,7 @@ import os
 import glob
 
 magic_path = '/home/hack/PycharmProjects/packages/chyson/os/magic/magic_file_type.py'
+# this deals with the linux and windows platform
 if sys.platform.startswith("win"):
     def get_files(names):
         for name in names:
@@ -19,6 +20,11 @@ else:
 
 
 def load_modules():
+    """
+    Dynamically load modules in the specified directory python files and
+    has magic keyword in the python file.
+    :return:
+    """
     modules = []
     # for name in os.listdir(os.path.dirname(__file__) or '.'):
     for name in os.listdir(os.path.dirname(magic_path)):
@@ -92,6 +98,12 @@ def load_module_v3():
 # paths, but it is not difficult to extend the code to accommodate these.
 
 def get_function(module, function_name):
+    """
+    Load the specified function in the model with function_name
+    :param module:
+    :param function_name:
+    :return:
+    """
     # If hundreds of files were being processed (e.g., due to using *.* in the C:\windows
     # directory), we don’t want to go through the lookup process for every module
     # for every file. So immediately after defining the get_function() function, we

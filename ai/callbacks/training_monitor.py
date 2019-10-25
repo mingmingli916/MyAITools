@@ -1,8 +1,9 @@
-from keras.callbacks import BaseLogger
+import json
+
 import matplotlib.pyplot as plt
 import numpy as np
-import json
 import os
+from keras.callbacks import BaseLogger
 
 
 class TrainingMonitor(BaseLogger):
@@ -51,7 +52,7 @@ class TrainingMonitor(BaseLogger):
             plt.style.use('ggplot')
             plt.figure()
             plt.plot(N, self.H['loss'], label='train_loss')
-            plt.plot(N, self.H['val_loss'], label='val_loss')
+            plt.plot(N, self.H['val_loss'], label='val_loss')  # new Keras
             # plt.plot(N, self.H['acc'], label='acc')
             # plt.plot(N, self.H['val_acc'], label='val_acc')
             plt.plot(N, self.H['accuracy'], label='accuracy')

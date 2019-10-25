@@ -1,10 +1,13 @@
+from deprecated import deprecated
+
+
 def swap(lst, a, b):
     tmp = lst[a]
     lst[a] = lst[b]
     lst[b] = tmp
 
 
-@DeprecationWarning
+@deprecated(reason='use ArrayFromOne instead.')
 class A1:
     def __init__(self, A):
         self.A = A
@@ -47,3 +50,7 @@ def new_range(start, end, step=1):
         return range(start, end + 1, step)
     else:
         return range(start, end - 1, -step)
+
+
+if __name__ == '__main__':
+    a = A1([1, 2, 3])
