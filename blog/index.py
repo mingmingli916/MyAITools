@@ -54,7 +54,7 @@ def join(lst):
 
 def generate_index(base_path, inter_path=''):
     refs = os.listdir(join([base_path, inter_path]))
-    refs = sorted(refs)
+    refs = sorted(refs, key=str.lower)
 
     html = start
     html += '<ul>'
