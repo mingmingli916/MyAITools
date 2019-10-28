@@ -129,7 +129,7 @@ def minimum(T, x):
 def maximum(T, x):
     while x.right != T.nil:
         x = x.right
-    return x
+    return x个
 
 
 def successor(T, x):
