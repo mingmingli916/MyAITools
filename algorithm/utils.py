@@ -45,7 +45,7 @@ class ArrayFromOne(list):
         super().__setitem__(key - 1, value)
 
 
-def new_range(start, end, step=1):
+def close_range(start, end, step=1):
     if end >= start:
         return range(start, end + 1, step)
     else:
