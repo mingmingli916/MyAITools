@@ -13,9 +13,15 @@ start = '''
 <meta name="author" content="Mike Chyson">
 <meta charset="UTF-8">
 <meta name="description" content="Mike Chyson's Blog">
-<meta name="keywords" content="blog, html, httpd">
-<link rel="stylesheet" type="text/css" href="./css/index.css">
+<meta name="keywords" content="blog, python, ai, deep learning">
 <title>Chyson's Blog</title>
+
+<style type="text/css">
+a:link {color: #0000FF}
+a:visited {color: #00FF00}
+a:hover {color: #FF00FF}
+a:active {color: #0000FF}
+</style>
 </head>
 
 <body>
