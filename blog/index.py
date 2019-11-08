@@ -10,9 +10,9 @@ start = '''
 <html>
 
 <head>
-<meta name="author" content="Hack Chyson">
+<meta name="author" content="Mike Chyson">
 <meta charset="UTF-8">
-<meta name="description" content="Hack Chyson's Blog">
+<meta name="description" content="Mike Chyson's Blog">
 <meta name="keywords" content="blog, html, httpd">
 <link rel="stylesheet" type="text/css" href="./css/index.css">
 <title>Chyson's Blog</title>
@@ -20,7 +20,7 @@ start = '''
 
 <body>
 
-<h1 style="text-align:center"> Hack Chyson's Blog</h1>
+<h1 style="text-align:center">Mike Chyson's Blog</h1>
 
 <div id="motto">
   <p>THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>
@@ -32,7 +32,7 @@ end = '''
   <hr>
 
   <div id="github">
-    <p>GitHub: <a class="github" href="https://github.com/hackchyson/">hackchyson</a></p>
+    <p>GitHub: <a class="github" href="https://github.com/hackchyson/">Mike Chyson</a></p>
   </div>
   
 </body>
