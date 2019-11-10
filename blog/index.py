@@ -17,10 +17,10 @@ start = '''
 <title>Chyson's Blog</title>
 
 <style type="text/css">
-a:link {color: #0000FF}
-a:visited {color: #00FF00}
-a:hover {color: #FF00FF}
-a:active {color: #0000FF}
+a:link {text-decoration:none;}
+a:visited {color: #802A2A;text-decoration:none;}
+a:hover {font-size:150%; text-decoration:none; background:#66ff66;}
+a:active {color: #0000ff;text-decoration:none;}
 </style>
 </head>
 
@@ -38,7 +38,7 @@ end = '''
   <hr>
 
   <div id="github">
-    <p>GitHub: <a class="github" href="https://github.com/hackchyson/">Mike Chyson</a></p>
+    <p>GitHub: <a class="github" href="https://github.com/mikechyson/">Mike Chyson</a></p>
   </div>
   
 </body>
