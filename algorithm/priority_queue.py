@@ -28,11 +28,11 @@ class MaxPriorityQueue:
         r = right(i)
 
         # find the largest element
-        if l <= self.A.heap_size and self.A[l].key > self.A[i].key:
+        if l <= self.heap_size and self.A[l].key > self.A[i].key:
             largest = l
         else:
             largest = i
-        if r <= self.A.heap_size and self.A[r].key > self.A[largest].key:
+        if r <= self.heap_size and self.A[r].key > self.A[largest].key:
             largest = r
 
         if largest != i:
@@ -56,23 +56,29 @@ class MaxPriorityQueue:
             i = parent(i)
 
     def insert(self, obj):
-        self.A.heap_size = self.A.heap_size + 1
+        self.heap_size = self.heap_size + 1
         oo = copy.deepcopy(obj)
         oo.key = -sys.maxsize
-        self.A.append(oo)
-        self.increase_key(self.A.heap_size, obj)
+        if self.heap_size > len(self.A):
+            self.A.append(oo)
+        else:
+            self.A[self.heap_size] = oo
+        self.increase_key(self.heap_size, obj)
 
     def __str__(self):
         return str(self.A)
 
     def extract_max(self):
-        if self.A.heap_size < 1:
+        if self.heap_size < 1:
             raise Exception('heap underflow')
         max = self.A[1]
-        self.A[1] = self.A[self.A.heap_size]
-        self.A.heap_size = self.A.heap_size - 1
+        self.A[1] = self.A[self.heap_size]
+        self.heap_size = self.heap_size - 1
         self.max_heapify(1)
         return max
+
+    def __len__(self):
+        return self.heap_size
 
 
 class MinPriorityQueue:
@@ -86,12 +92,12 @@ class MinPriorityQueue:
         r = right(i)
 
         # find the smallest element
-        if l <= self.A.heap_size and self.A[l].key < self.A[i].key:
+        if l <= self.heap_size and self.A[l].key < self.A[i].key:
             smallest = l
         else:
             smallest = i
 
-        if r <= self.A.heap_size and self.A[r].key < self.A[smallest].key:
+        if r <= self.heap_size and self.A[r].key < self.A[smallest].key:
             smallest = r
 
         if smallest != i:
@@ -107,31 +113,41 @@ class MinPriorityQueue:
         return self.A[1]
 
     def decrease_key(self, i, obj):
+        # print('obj.key: {}; A[{}].key: {}'.format(obj.key, i, self.A[i].key))
         if obj.key > self.A[i].key:
             raise Exception('new key is larger than current key')
+            # pass
+
         self.A[i] = obj
         while i > 1 and self.A[parent(i)].key > self.A[i].key:
             swap(self.A, i, parent(i))
             i = parent(i)
 
     def insert(self, obj):
-        self.A.heap_size = self.A.heap_size + 1
+        self.heap_size = self.heap_size + 1
         oo = copy.deepcopy(obj)
-        oo.key = sys.maxsize
-        self.A.append(oo)
-        self.decrease_key(self.A.heap_size, obj)
+        oo.key = sys.maxsize  # sentinel
+        if self.heap_size > len(self.A):
+            self.A.append(oo)
+        else:
+            self.A[self.heap_size] = oo
+        # print('heap_size: {}; object key: {}'.format(self.heap_size, obj.key))
+        self.decrease_key(self.heap_size, obj)
 
     def __str__(self):
         return str(self.A)
 
     def extract_min(self):
-        if self.A.heap_size < 1:
+        if self.heap_size < 1:
             raise Exception('heap underflow')
         min = self.A[1]
-        self.A[1] = self.A[self.A.heap_size]
-        self.A.heap_size = self.A.heap_size - 1
+        self.A[1] = self.A[self.heap_size]
+        self.heap_size = self.heap_size - 1
         self.min_heapify(1)
         return min
+
+    def __len__(self):
+        return self.heap_size
 
 
 if __name__ == '__main__':
