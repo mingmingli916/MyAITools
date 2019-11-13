@@ -17,7 +17,7 @@ def right(i):
     return 2 * i + 1
 
 
-class MaxHeap:
+class MaxPriorityQueue:
     def __init__(self):
         self.A = list1([])
         self.heap_size = len(self.A)
@@ -75,7 +75,7 @@ class MaxHeap:
         return max
 
 
-class MinHeap:
+class MinPriorityQueue:
     def __init__(self):
         self.A = list1([])
         self.heap_size = len(self.A)
@@ -141,7 +141,7 @@ if __name__ == '__main__':
             self.character = character
 
 
-    heap = MaxHeap()
+    heap = MaxPriorityQueue()
     print(heap)
     lst = [1, 5, 2, 3, 6, 10, 7, 20, 15, 24]
     lc = []
@@ -154,7 +154,7 @@ if __name__ == '__main__':
     for i in range(len(lst)):
         print(heap.extract_max().key)
 
-    heap = MinHeap()
+    heap = MinPriorityQueue()
     print(heap)
     lst = [1, 5, 2, 3, 6, 10, 7, 20, 15, 24]
     lc = []
