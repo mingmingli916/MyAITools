@@ -28,7 +28,13 @@ a:active {color: #0000ff;text-decoration:none;}
 <body>
 
 <h1 style="text-align:center">Mike Chyson's Blog</h1>
-
+<div id="info">
+  <p>Name: Mingming Li (Mike Chyson)</p>
+  <p>Gender: Male</p>
+  <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
+  <p>GitHub: <a class="github" href="https://github.com/mikechyson/">Mike Chyson</a></p>
+</div>
+<hr>
 <div id="motto">
   <p>THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>
 </div>
@@ -37,11 +43,6 @@ a:active {color: #0000ff;text-decoration:none;}
 
 end = '''
   <hr>
-
-  <div id="github">
-    <p>GitHub: <a class="github" href="https://github.com/mikechyson/">Mike Chyson</a></p>
-  </div>
-  
 </body>
 </html>
 '''
@@ -107,7 +108,7 @@ def generate_show():
     line = ''
     for ref in refs:
         line += '<div>'
-        line += '<img src="/show/{}">'.format(ref)
+        line += '<img src="/show/{}" width="50%">'.format(ref)
         line += '</div>'
     return line
 
