@@ -3,8 +3,8 @@ import os
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html', '.git']
-img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
+black_list = ['index.html', '.git', 'show']
+img_list = ['pics', 'pic', 'pictures', 'picture']
 important = ['show']
 show_path = os.path.join(path, 'show')
 
@@ -121,7 +121,7 @@ def generate_index(base_path, inter_path=''):
         html += '</ul>\n'
         html += '</div>'
 
-        if base_path==path:
+        if base_path == path:
             html += '<hr>\n'
             show_html = generate_show()
             html += show_html
@@ -139,6 +139,8 @@ def generate_show():
     line = ''
     line += '<div class="show">\n'
     for ref in refs:
+        if ref in black_list:
+            continue
         line += '<div>'
         line += '<img src="/show/{}">'.format(ref)
         line += '</div>\n'
