@@ -28,7 +28,7 @@ float:left;
 margin-left:10px;
 margin-top:10px;
 
-.clear:after{
+.show:after{
 clear: both;
 content: "";
 display: block;
