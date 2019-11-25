@@ -3,8 +3,9 @@ import os
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html', '.git']
+black_list = ['index.html', '.git', 'pics', 'show']
 white_list = ['html', 'pdf', 'hml']
+show_path = os.path.join(path, 'show')
 
 start = '''
 <html>
@@ -89,11 +90,26 @@ def generate_index(base_path, inter_path=''):
         #     line += '\n'
         #     html += line
     html += '</ul>'
+
+    show_html = generate_show()
+    html += show_html
+
     html += end
 
     with open(join([base_path, inter_path, 'index.html']), 'w') as f:
         f.write(html)
     # print(html)
+
+
+def generate_show():
+    refs = os.listdir(show_path)
+    refs = sorted(refs, key=str.lower)
+    line = ''
+    for ref in refs:
+        line += '<div>'
+        line += '<img src="/show/{}">'.format(ref)
+        line += '</div>'
+    return line
 
 
 if __name__ == '__main__':
