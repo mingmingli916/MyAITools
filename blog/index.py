@@ -28,11 +28,7 @@ float:left;
 margin-left:10px;
 margin-top:10px;
 
-.show:after{
-clear: both;
-content: "";
-display: block;
-}
+
 </style>
 </head>
 
@@ -46,7 +42,7 @@ display: block;
 
 end = '''
 <hr>
-<div id="info" class="clear">
+<div id="info" clear:both>
   <p>Name: Mingming Li (Mike Chyson)</p>
   <p>Gender: Male</p>
   <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
