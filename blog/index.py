@@ -121,9 +121,10 @@ def generate_index(base_path, inter_path=''):
         html += '</ul>\n'
         html += '</div>'
 
-        # html += '<hr>\n'
-        # show_html = generate_show()
-        # html += show_html
+        if base_path==path:
+            html += '<hr>\n'
+            show_html = generate_show()
+            html += show_html
 
     html += end
 
@@ -139,7 +140,7 @@ def generate_show():
     line += '<div class="show">\n'
     for ref in refs:
         line += '<div>'
-        line += '<img src="/show/{}" width="400px">'.format(ref)
+        line += '<img src="/show/{}">'.format(ref)
         line += '</div>\n'
     line += '</div>\n'
     return line
