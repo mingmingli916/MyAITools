@@ -34,14 +34,15 @@ a:active {color: #0000ff;text-decoration:none;}
   <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
   <p>GitHub: <a class="github" href="https://github.com/mikechyson/">Mike Chyson</a></p>
 </div>
-<hr>
-<div id="motto">
-  <p>THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>
-</div>
+
 <hr>
 '''
 
 end = '''
+  <hr>
+  <div id="motto">
+    <p>THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>
+  </div>
 </body>
 </html>
 '''
