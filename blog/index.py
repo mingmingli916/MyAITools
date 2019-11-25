@@ -3,8 +3,9 @@ import os
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html', '.git', 'pics', 'show', 'pic']
+black_list = ['index.html', '.git']
 white_list = ['html', 'pdf', 'hml']
+img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
 show_path = os.path.join(path, 'show')
 
 start = '''
@@ -20,7 +21,7 @@ start = '''
 <style type="text/css">
 a:link {text-decoration:none;}
 a:visited {color: #802A2A;text-decoration:none;}
-a:hover {font-size:150%; text-decoration:none; background:#66ff66;}
+a:hover {font-size:120%; text-decoration:none; background:#66ff66;}
 a:active {color: #0000ff;text-decoration:none;}
 
 .show div{
@@ -73,41 +74,61 @@ def join(lst):
 
 
 def generate_index(base_path, inter_path=''):
+    html = start
+
     refs = os.listdir(join([base_path, inter_path]))
     refs = sorted(refs, key=str.lower)
 
-    html = start
-    html += '<div class="list">\n'
-    html += '<ul>\n'
+    if os.path.sep.split(base_path)[-1] in img_list:
+        html += '<div class="show">\n'
 
-    for ref in refs:
-        if ref in black_list:
-            continue
+        for ref in refs:
 
-        if os.path.isdir(join([base_path, inter_path, ref])):
-            generate_index(base_path, join([inter_path, ref]))
+            if ref in black_list:
+                continue
+            # recursive generate index
+            if os.path.isdir(join([base_path, inter_path, ref])):
+                generate_index(base_path, join([inter_path, ref]))
 
-        web_path = join([website, inter_path, ref])
+            web_path = join([website, inter_path, ref])
 
-        line = '<li>'
-        line += '<a href="{}">{}</a>'.format(web_path, ref)
-        line += '</li>'
-        line += '\n'
-        html += line
+            html += '<div>'
+            html += '<img src="{}" width="400px">'.format(web_path)
+            html += '</div>\n'
+        html += '</div>'
+    else:
+        html += '<div class="list">\n'
+        html += '<ul>\n'
 
-        # elif ref.split('.')[-1] in white_list:
-        #     web_path = join([website, inter_path, ref])
-        #
-        #     line = '<li>'
-        #     line += '<a href="{}">{}</a>'.format(web_path, ref)
-        #     line += '</li>'
-        #     line += '\n'
-        #     html += line
-    html += '</ul>\n'
-    html += '</div>'
-    html += '<hr>\n'
-    show_html = generate_show()
-    html += show_html
+        for ref in refs:
+            if ref in black_list:
+                continue
+
+            if os.path.isdir(join([base_path, inter_path, ref])):
+                generate_index(base_path, join([inter_path, ref]))
+
+            web_path = join([website, inter_path, ref])
+
+            line = '<li>'
+            line += '<a href="{}">{}</a>'.format(web_path, ref)
+            line += '</li>'
+            line += '\n'
+            html += line
+
+            # elif ref.split('.')[-1] in white_list:
+            #     web_path = join([website, inter_path, ref])
+            #
+            #     line = '<li>'
+            #     line += '<a href="{}">{}</a>'.format(web_path, ref)
+            #     line += '</li>'
+            #     line += '\n'
+            #     html += line
+        html += '</ul>\n'
+        html += '</div>'
+
+        # html += '<hr>\n'
+        # show_html = generate_show()
+        # html += show_html
 
     html += end
 
