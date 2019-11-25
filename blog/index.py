@@ -42,7 +42,6 @@ a:active {color: #0000ff;text-decoration:none;}
 '''
 
 end = '''
-  <hr>
 </body>
 </html>
 '''
@@ -91,7 +90,7 @@ def generate_index(base_path, inter_path=''):
         #     line += '\n'
         #     html += line
     html += '</ul>'
-
+    html += '<hr>'
     show_html = generate_show()
     html += show_html
 
