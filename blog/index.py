@@ -25,8 +25,7 @@ a:active {color: #0000ff;text-decoration:none;}
 
 .show div{
 float:left;
-margin-left:10px;
-margin-top:10px;
+margin:10px;
 }
 
 #info {
