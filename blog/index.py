@@ -34,6 +34,7 @@ a:active {color: #0000ff;text-decoration:none;}
 '''
 
 end = '''
+<hr>
 <div id="info">
   <p>Name: Mingming Li (Mike Chyson)</p>
   <p>Gender: Male</p>
