@@ -142,7 +142,7 @@ def generate_show():
         if ref in black_list:
             continue
         line += '<div>'
-        line += '<img src="/show/{}">'.format(ref)
+        line += '<img src="/show/{}" width="600px">'.format(ref)
         line += '</div>\n'
     line += '</div>\n'
     return line
