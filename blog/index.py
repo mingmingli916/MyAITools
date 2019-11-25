@@ -3,7 +3,7 @@ import os
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html', '.git', 'pics', 'show']
+black_list = ['index.html', '.git', 'pics', 'show', 'pic']
 white_list = ['html', 'pdf', 'hml']
 show_path = os.path.join(path, 'show')
 
