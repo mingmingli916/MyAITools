@@ -27,7 +27,7 @@ a:active {color: #0000ff;text-decoration:none;}
 
 <body>
 
-<!-- <h1 style="text-align:center">Mike Chyson's Blog</h1> -->
+<h1 style="text-align:center">Mike Chyson's Blog</h1>
 
 
 <hr>
