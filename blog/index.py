@@ -22,6 +22,11 @@ a:link {text-decoration:none;}
 a:visited {color: #802A2A;text-decoration:none;}
 a:hover {font-size:150%; text-decoration:none; background:#66ff66;}
 a:active {color: #0000ff;text-decoration:none;}
+
+.show div{
+float:left;
+margin-left:10px;
+margin-top:10px;
 </style>
 </head>
 
@@ -106,10 +111,12 @@ def generate_show():
     refs = os.listdir(show_path)
     refs = sorted(refs, key=str.lower)
     line = ''
+    line += '<div class="show">'
     for ref in refs:
         line += '<div>'
         line += '<img src="/show/{}" width="400px">'.format(ref)
         line += '</div>'
+    line += '</div>'
     return line
 
 
