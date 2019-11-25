@@ -30,6 +30,8 @@ margin-top:10px;
 
 .clear:after{
 clear: both;
+content: "";
+display: block;
 }
 </style>
 </head>
