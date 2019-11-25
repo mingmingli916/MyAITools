@@ -21,7 +21,7 @@ start = '''
 <style type="text/css">
 a:link {text-decoration:none;}
 a:visited {color: #802A2A;text-decoration:none;}
-a:hover {font-size:120%; text-decoration:none; background:#66ff66;}
+a:hover {font-size:120%; text-decoration:none;}
 a:active {color: #0000ff;text-decoration:none;}
 
 .show div{
@@ -79,6 +79,7 @@ def generate_index(base_path, inter_path=''):
     refs = os.listdir(join([base_path, inter_path]))
     refs = sorted(refs, key=str.lower)
 
+    print(base_path.split(os.path.sep)[-1])
     if base_path.split(os.path.sep)[-1] in img_list:
         html += '<div class="show">\n'
 
