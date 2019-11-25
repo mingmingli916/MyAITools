@@ -28,21 +28,20 @@ a:active {color: #0000ff;text-decoration:none;}
 <body>
 
 <!-- <h1 style="text-align:center">Mike Chyson's Blog</h1> -->
-<div id="info">
-  <p>Name: Mingming Li (Mike Chyson)</p>
-  <p>Gender: Male</p>
-  <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
-  <p>GitHub: <a class="github" href="https://github.com/mikechyson/">Mike Chyson</a></p>
-</div>
+
 
 <hr>
 '''
 
 end = '''
-  <hr>
-  <div id="motto">
-    <p>THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>
-  </div>
+<div id="info">
+  <p>Name: Mingming Li (Mike Chyson)</p>
+  <p>Gender: Male</p>
+  <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
+  <p>GitHub: <a class="github" href="https://github.com/mikechyson/">Mike Chyson</a></p>
+  <p>Motto: THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>
+</div>
+
 </body>
 </html>
 '''
