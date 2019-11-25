@@ -40,7 +40,7 @@ margin-top:10px;
 
 end = '''
 <hr>
-<div id="info">
+<div id="info" class="clear">
   <p>Name: Mingming Li (Mike Chyson)</p>
   <p>Gender: Male</p>
   <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
