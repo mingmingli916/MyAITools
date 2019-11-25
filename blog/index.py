@@ -4,8 +4,8 @@ path = '/var/www/html'
 website = 'http://chyson.net'
 
 black_list = ['index.html', '.git']
-white_list = ['html', 'pdf', 'hml']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
+important = ['show']
 show_path = os.path.join(path, 'show')
 
 start = '''
@@ -27,6 +27,7 @@ a:active {color: #0000ff;text-decoration:none;}
 .show div{
 float:left;
 margin:10px;
+border: 3px solid black;
 }
 
 #info {
@@ -94,7 +95,8 @@ def generate_index(base_path, inter_path=''):
             web_path = join([website, inter_path, ref])
 
             html += '<div>'
-            html += '<img src="{}" width="400px">'.format(web_path)
+            # html += '<img src="{}" width="400px">'.format(web_path)
+            html += '<img src="{}">'.format(web_path)
             html += '</div>\n'
         html += '</div>'
     else:
@@ -116,14 +118,6 @@ def generate_index(base_path, inter_path=''):
             line += '\n'
             html += line
 
-            # elif ref.split('.')[-1] in white_list:
-            #     web_path = join([website, inter_path, ref])
-            #
-            #     line = '<li>'
-            #     line += '<a href="{}">{}</a>'.format(web_path, ref)
-            #     line += '</li>'
-            #     line += '\n'
-            #     html += line
         html += '</ul>\n'
         html += '</div>'
 
