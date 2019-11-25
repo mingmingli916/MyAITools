@@ -97,8 +97,8 @@ def generate_index(base_path, inter_path=''):
         #     line += '</li>'
         #     line += '\n'
         #     html += line
-    html += '</ul>'
-    html += '<hr>'
+    html += '</ul>\n'
+    html += '<hr>\n'
     show_html = generate_show()
     html += show_html
 
@@ -113,12 +113,12 @@ def generate_show():
     refs = os.listdir(show_path)
     refs = sorted(refs, key=str.lower)
     line = ''
-    line += '<div class="show">'
+    line += '<div class="show">\n'
     for ref in refs:
-        line += '<div>'
-        line += '<img src="/show/{}" width="400px">'.format(ref)
-        line += '</div>'
-    line += '</div>'
+        line += '<div>\n'
+        line += '<img src="/show/{}" width="400px">\n'.format(ref)
+        line += '</div>\n'
+    line += '</div>\n'
     return line
 
 
