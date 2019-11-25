@@ -79,9 +79,7 @@ def generate_index(base_path, inter_path=''):
     refs = os.listdir(join([base_path, inter_path]))
     refs = sorted(refs, key=str.lower)
 
-    print(os.path.sep.split(base_path)[-1])
-
-    if os.path.sep.split(base_path)[-1] in img_list:
+    if base_path.split(os.path.sep)[-1] in img_list:
         html += '<div class="show">\n'
 
         for ref in refs:
