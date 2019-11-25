@@ -108,7 +108,7 @@ def generate_show():
     line = ''
     for ref in refs:
         line += '<div>'
-        line += '<img src="/show/{}" width="200px">'.format(ref)
+        line += '<img src="/show/{}" width="400px">'.format(ref)
         line += '</div>'
     return line
 
