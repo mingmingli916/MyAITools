@@ -27,12 +27,14 @@ a:active {color: #0000ff;text-decoration:none;}
 float:left;
 margin-left:10px;
 margin-top:10px;
+}
 
 #info {
 clear: both
 }
 
 </style>
+
 </head>
 
 <body>
@@ -75,7 +77,8 @@ def generate_index(base_path, inter_path=''):
     refs = sorted(refs, key=str.lower)
 
     html = start
-    html += '<ul>'
+    html += '<div class="list">\n'
+    html += '<ul>\n'
 
     for ref in refs:
         if ref in black_list:
@@ -101,6 +104,7 @@ def generate_index(base_path, inter_path=''):
         #     line += '\n'
         #     html += line
     html += '</ul>\n'
+    html += '</div>'
     html += '<hr>\n'
     show_html = generate_show()
     html += show_html
@@ -118,8 +122,8 @@ def generate_show():
     line = ''
     line += '<div class="show">\n'
     for ref in refs:
-        line += '<div>\n'
-        line += '<img src="/show/{}" width="400px">\n'.format(ref)
+        line += '<div>'
+        line += '<img src="/show/{}" width="400px">'.format(ref)
         line += '</div>\n'
     line += '</div>\n'
     return line
