@@ -46,8 +46,9 @@ clear: both
 '''
 
 end = '''
-<hr>
+
 <div id="info">
+  <hr>
   <p>Name: Mingming Li (Mike Chyson)</p>
   <p>Gender: Male</p>
   <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
