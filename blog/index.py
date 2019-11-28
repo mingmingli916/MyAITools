@@ -56,6 +56,7 @@ start = '''
       <div><a href="http://chyson.net">Home</a></div>
       <div><a href="http://chyson.net/show">Show</a></div>
     </div>
+    <hr>
 '''
 
 end = '''
