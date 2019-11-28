@@ -26,14 +26,6 @@ start = '''
       margin:20px;
       }
 
-      .show {
-      clear: both;
-      }
-      
-      .list {
-      clear: both;
-      }
-
       .show div{
       float:left;
       margin:10px;
@@ -55,7 +47,10 @@ start = '''
     <div class="navigator">
       <div><a href="http://chyson.net">Home</a></div>
       <div><a href="http://chyson.net/show">Show</a></div>
+    </div>
+    <div style="clear:both;">
     <hr>
+    </div>
 '''
 
 end = '''
@@ -95,7 +90,6 @@ def generate_index(base_path, inter_path=''):
     # print(inter_path)
     if inter_path.split(os.path.sep)[-1] in img_list:
         html += '<div class="show">\n'
-        html += '<hr>\n'
 
         for ref in refs:
 
@@ -114,7 +108,6 @@ def generate_index(base_path, inter_path=''):
         html += '</div>'
     else:
         html += '<div class="list">\n'
-        html += '<hr>\n'
         html += '<ul>\n'
 
         for ref in refs:
