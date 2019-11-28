@@ -3,61 +3,73 @@ import os
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html', '.git', 'show']
-img_list = ['pics', 'pic', 'pictures', 'picture']
-important = ['show']
-show_path = os.path.join(path, 'show')
+black_list = ['index.html', '.git']
+img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
 
 start = '''
 <html>
 
-<head>
-<meta name="author" content="Mike Chyson">
-<meta charset="UTF-8">
-<meta name="description" content="Mike Chyson's Blog">
-<meta name="keywords" content="blog, python, ai, deep learning">
-<title>Chyson's Blog</title>
+  <head>
+    <meta name="author" content="Mike Chyson">
+    <meta charset="UTF-8">
+    <meta name="description" content="Mike Chyson's Blog">
+    <meta name="keywords" content="blog, python, ai, deep learning">
+    <title>Chyson's Blog</title>
 
-<style type="text/css">
-a:link {text-decoration:none;}
-a:visited {color: #802A2A;text-decoration:none;}
-a:hover {font-size:120%; text-decoration:none;}
-a:active {color: #0000ff;text-decoration:none;}
+    <style type="text/css">
+      a:link {text-decoration:none;}
+      a:visited {color: #802A2A;text-decoration:none;}
+      a:hover {font-size:120%; text-decoration:none;}
+      a:active {color: #0000ff;text-decoration:none;}
+      
+      .navigator div{float:left;
+      margin:20px;
+      }
 
-.show div{
-float:left;
-margin:10px;
-border: 3px solid black;
-}
+      .show {
+      clear: both;
+      }
+      
+      .list {
+      clear: both;
+      }
 
-#info {
-clear: both
-}
+      .show div{
+      float:left;
+      margin:10px;
+      border: 3px solid black;
+      }
 
-</style>
+      #info {
+      clear: both
+      }
 
-</head>
+    </style>
 
-<body>
+  </head>
 
-<h1 style="text-align:center">Mike Chyson's Blog</h1>
+  <body>
 
-
-<hr>
+    <h1 style="text-align:center">Mike Chyson's Blog</h1>
+    <hr>
+    <div class="navigator">
+      <div><a href="http://chyson.net">Home</a></div>
+      <div><a href="http://chyson.net/show">Show</a></div>
+    </div>
 '''
 
 end = '''
 
-<div id="info">
-  <hr>
-  <p>Name: Mingming Li (Mike Chyson)</p>
-  <p>Gender: Male</p>
-  <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
-  <p>GitHub: <a class="github" href="https://github.com/mikechyson/">Mike Chyson</a></p>
-  <!--<p>Motto: THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>-->
-</div>
+    <div id="info">
+      <hr>
+      <p>Name: Mingming Li (Mike Chyson)</p>
+      <p>Gender: Male</p>
+      <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
+      <p>GitHub: <a class="github" href="https://github.com/mikechyson/">Mike Chyson</a></p>
+      <!--<p>Motto: THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>-->
+    </div>
 
-</body>
+  </body>
 </html>
 '''
 
@@ -121,10 +133,10 @@ def generate_index(base_path, inter_path=''):
         html += '</ul>\n'
         html += '</div>'
 
-        if inter_path == '':
-            html += '<hr>\n'
-            show_html = generate_show()
-            html += show_html
+        # if inter_path == '':  # top level
+        #     html += '<hr>\n'
+        #     show_html = generate_show()
+        #     html += show_html
 
     html += end
 
@@ -133,19 +145,19 @@ def generate_index(base_path, inter_path=''):
     # print(html)
 
 
-def generate_show():
-    refs = os.listdir(show_path)
-    refs = sorted(refs, key=str.lower)
-    line = ''
-    line += '<div class="show">\n'
-    for ref in refs:
-        if ref in black_list:
-            continue
-        line += '<div>'
-        line += '<a href="http://chyson.net/show/{}"><img src="/show/{}" width="600px"></a>'.format(ref, ref)
-        line += '</div>\n'
-    line += '</div>\n'
-    return line
+# def generate_show():
+#     refs = os.listdir(show_path)
+#     refs = sorted(refs, key=str.lower)
+#     line = ''
+#     line += '<div class="show">\n'
+#     for ref in refs:
+#         if ref in black_list:
+#             continue
+#         line += '<div>'
+#         line += '<a href="http://chyson.net/show/{}"><img src="/show/{}" width="600px"></a>'.format(ref, ref)
+#         line += '</div>\n'
+#     line += '</div>\n'
+#     return line
 
 
 if __name__ == '__main__':
