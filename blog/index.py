@@ -133,10 +133,31 @@ def generate_index(base_path, inter_path=''):
         html += '</ul>\n'
         html += '</div>'
 
+        if inter_path == '':  # top level
+            html += '<hr>\n'
+            show_html = generate_show()
+            html += show_html
+
     html += end
 
     with open(join([base_path, inter_path, 'index.html']), 'w') as f:
         f.write(html)
+    # print(html)
+
+
+def generate_show():
+    refs = os.listdir(os.path.join(path, 'show'))
+    refs = sorted(refs, key=str.lower)
+    line = ''
+    line += '<div class="show">\n'
+    for ref in refs:
+        if ref in black_list:
+            continue
+        line += '<div>'
+        line += '<a href="http://chyson.net/show/{}"><img src="/show/{}" width="600px"></a>'.format(ref, ref)
+        line += '</div>\n'
+    line += '</div>\n'
+    return line
 
 
 if __name__ == '__main__':
