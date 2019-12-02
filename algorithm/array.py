@@ -13,6 +13,7 @@ class list1(list):
         super().__setitem__(key - 1, value)
 
 
+
 @deprecated(reason='use ArrayFromOne instead.')
 class A1:
     def __init__(self, A):

@@ -3,7 +3,7 @@ import os
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html', '.git']
+black_list = ['index.html', '.git', 'show']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
 
 start = '''
@@ -47,6 +47,9 @@ start = '''
     <div class="navigator">
       <div><a href="http://chyson.net">Home</a></div>
       <div><a href="http://chyson.net/show">Show</a></div>
+      <div><a href="http://chyson.net/algorithm">Algorithm</a></div>
+      <div><a href="http://chyson.net/ai">AI</a></div>
+      <div><a href="http://chyson.net/books">Books</a></div>
     </div>
     <div style="clear:both;">
     <hr>
@@ -93,16 +96,15 @@ def generate_index(base_path, inter_path=''):
 
         for ref in refs:
 
-            if ref in black_list:
-                continue
             # recursive generate index
             if os.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
-            web_path = join([website, inter_path, ref])
+            if ref in black_list:
+                continue
 
+            web_path = join([website, inter_path, ref])
             html += '<div>'
-            # html += '<img src="{}" width="400px">'.format(web_path)
             html += '<img src="{}">'.format(web_path)
             html += '</div>\n'
         html += '</div>'
@@ -111,14 +113,14 @@ def generate_index(base_path, inter_path=''):
         html += '<ul>\n'
 
         for ref in refs:
-            if ref in black_list:
-                continue
 
             if os.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
-            web_path = join([website, inter_path, ref])
+            if ref in black_list:
+                continue
 
+            web_path = join([website, inter_path, ref])
             line = '<li>'
             line += '<a href="{}">{}</a>'.format(web_path, ref)
             line += '</li>'
@@ -128,31 +130,10 @@ def generate_index(base_path, inter_path=''):
         html += '</ul>\n'
         html += '</div>'
 
-        # if inter_path == '':  # top level
-        #     html += '<hr>\n'
-        #     show_html = generate_show()
-        #     html += show_html
-
     html += end
 
     with open(join([base_path, inter_path, 'index.html']), 'w') as f:
         f.write(html)
-    # print(html)
-
-
-# def generate_show():
-#     refs = os.listdir(show_path)
-#     refs = sorted(refs, key=str.lower)
-#     line = ''
-#     line += '<div class="show">\n'
-#     for ref in refs:
-#         if ref in black_list:
-#             continue
-#         line += '<div>'
-#         line += '<a href="http://chyson.net/show/{}"><img src="/show/{}" width="600px"></a>'.format(ref, ref)
-#         line += '</div>\n'
-#     line += '</div>\n'
-#     return line
 
 
 if __name__ == '__main__':
