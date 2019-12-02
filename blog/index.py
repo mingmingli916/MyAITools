@@ -3,7 +3,7 @@ import os
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html', '.git', 'show']
+black_list = ['index.html', '.git']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
 
 start = '''
@@ -46,10 +46,13 @@ start = '''
     <hr>
     <div class="navigator">
       <div><a href="http://chyson.net">Home</a></div>
-      <div><a href="http://chyson.net/show">Show</a></div>
-      <div><a href="http://chyson.net/algorithm">Algorithm</a></div>
       <div><a href="http://chyson.net/ai">AI</a></div>
+      <div><a href="http://chyson.net/algorithm">Algorithm</a></div>
+      <div><a href="http://chyson.net/notes">Notes</a></div>
       <div><a href="http://chyson.net/books">Books</a></div>
+      <div><a href="http://chyson.net/papers">Papers</a></div>
+      <div><a href="http://chyson.net/download">Download</a></div>
+      <div><a href="http://chyson.net/show">Show</a></div>
     </div>
     <div style="clear:both;">
     <hr>
@@ -100,7 +103,7 @@ def generate_index(base_path, inter_path=''):
             if os.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
-            if ref in black_list:
+            if ref in black_list or inter_path == '':
                 continue
 
             web_path = join([website, inter_path, ref])
@@ -117,7 +120,7 @@ def generate_index(base_path, inter_path=''):
             if os.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
-            if ref in black_list:
+            if ref in black_list or inter_path == '':
                 continue
 
             web_path = join([website, inter_path, ref])
