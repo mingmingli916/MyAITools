@@ -3,7 +3,7 @@ import os
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html', '.git']
+black_list = ['index.html', '.git', '.aes', '.gitignore', 'README.md']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
 
 start = '''
@@ -52,7 +52,6 @@ start = '''
       <div><a href="http://chyson.net/books">Books</a></div>
       <div><a href="http://chyson.net/papers">Papers</a></div>
       <div><a href="http://chyson.net/download">Download</a></div>
-      <div><a href="http://chyson.net/show">Show</a></div>
     </div>
     <div style="clear:both;">
     <hr>
