@@ -134,7 +134,6 @@ def generate_index(base_path, inter_path=''):
         html += '</div>'
 
         if inter_path == '':  # top level
-            html += '<hr>\n'
             show_html = generate_show()
             html += show_html
 
