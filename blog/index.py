@@ -107,7 +107,7 @@ def generate_index(base_path, inter_path=''):
 
             web_path = join([website, inter_path, ref])
             html += '<div>'
-            html += '<img src="{}">'.format(web_path)
+            html += '<a href="{0}"><img src="{0}" width="400px"></a>'.format(web_path)
             html += '</div>\n'
         html += '</div>'
     else:
