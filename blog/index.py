@@ -19,7 +19,7 @@ start = '''
     <style type="text/css">
       a:link {text-decoration:none;}
       a:visited {color: #802A2A;text-decoration:none;}
-      a:hover {font-size:120%; text-decoration:none;}
+      a:hover {background-color: gray; text-decoration:none;}
       a:active {color: #0000ff;text-decoration:none;}
       
       .navigator div{float:left;
