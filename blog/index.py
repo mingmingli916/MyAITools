@@ -1,9 +1,10 @@
 import os
+import re
 
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = ['index.html', '.git', '.aes', '.gitignore', 'README.md']
+black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
 
 start = '''
@@ -102,7 +103,11 @@ def generate_index(base_path, inter_path=''):
             if os.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
-            if ref in black_list or inter_path == '':
+            blocked = False
+            for black in black_list:
+                blocked = blocked and re.search(black, ref)
+
+            if blocked or inter_path == '':
                 continue
 
             web_path = join([website, inter_path, ref])
@@ -119,7 +124,11 @@ def generate_index(base_path, inter_path=''):
             if os.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
-            if ref in black_list or inter_path == '':
+            blocked = False
+            for black in black_list:
+                blocked = blocked and re.search(black, ref)
+
+            if blocked or inter_path == '':
                 continue
 
             web_path = join([website, inter_path, ref])
