@@ -105,7 +105,7 @@ def generate_index(base_path, inter_path=''):
 
             blocked = False
             for black in black_list:
-                blocked = blocked and re.search(black, ref)
+                blocked = blocked or re.search(black, ref)
 
             if blocked or inter_path == '':
                 continue
@@ -126,7 +126,7 @@ def generate_index(base_path, inter_path=''):
 
             blocked = False
             for black in black_list:
-                blocked = blocked and re.search(black, ref)
+                blocked = blocked or re.search(black, ref)
 
             if blocked or inter_path == '':
                 continue
