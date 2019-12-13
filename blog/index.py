@@ -161,7 +161,7 @@ def generate_show():
         if ref in black_list:
             continue
         line += '<div>'
-        line += '<a href="http://chyson.net/show/{}"><img src="/show/{}" width="400px" height="400px"></a>'.format(ref,
+        line += '<a href="http://chyson.net/show/{}"><img src="/show/{}" width="400px" height="300px"></a>'.format(ref,
                                                                                                                    ref)
         line += '</div>\n'
     line += '</div>\n'
