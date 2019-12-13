@@ -23,8 +23,9 @@ start = '''
       a:hover {background-color: #ddd; text-decoration:none;}
       a:active {color: #0000ff;text-decoration:none;}
       
-      .navigator div{float:left;
-      margin:20px;
+      .navigator div{float: left;
+      margin: 20px;
+      border: 5px;
       }
 
       .show div{
