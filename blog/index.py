@@ -25,7 +25,6 @@ start = '''
       
       .navigator div{float: left;
       margin: 20px;
-      border: 5px;
       }
 
       .show div{
