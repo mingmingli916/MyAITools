@@ -23,8 +23,8 @@ start = '''
       a:hover {background-color: #ddd; text-decoration:none;}
       a:active {color: #0000ff;text-decoration:none;}
       
-      .navigator div{float:left;
-      margin:20px;
+      .navigator div{float: left;
+      margin: 20px;
       }
 
       .show div{
@@ -161,7 +161,8 @@ def generate_show():
         if ref in black_list:
             continue
         line += '<div>'
-        line += '<a href="http://chyson.net/show/{}"><img src="/show/{}" width="400px"></a>'.format(ref, ref)
+        line += '<a href="http://chyson.net/show/{}"><img src="/show/{}" width="400px" height="300px"></a>'.format(ref,
+                                                                                                                   ref)
         line += '</div>\n'
     line += '</div>\n'
     return line
