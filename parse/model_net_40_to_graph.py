@@ -1,10 +1,12 @@
+import os
 import numpy as np
 
 PREFIX = 'OFF'
 off_sep = ' '
 encoding = 'utf8'
 vertex_start = 2
-grap_sep = ' '
+graph_sep = ' '
+suffix = '.off'
 
 """
 off file format
@@ -36,13 +38,13 @@ OFF
 """
 
 
-def model_net_40_to_graph(off_file,
-                          position_file,
-                          graph_file,
-                          off_sep=off_sep,
-                          graph_sep=grap_sep,
-                          encoding=encoding,
-                          vertex_start=vertex_start):
+def model_net_to_graph(off_file,
+                       position_file,
+                       graph_file,
+                       off_sep=off_sep,
+                       graph_sep=graph_sep,
+                       encoding=encoding,
+                       vertex_start=vertex_start):
     """
     Convert a ModelNet40 OFF file into a list stored graph.
 
@@ -111,7 +113,7 @@ def faces2graph(pos_dict, faces, graph_sep):
                 idx1 = idx2
                 idx2 = tmp
 
-            graph['{}{}{}'.format(idx1, grap_sep, idx2)] = distance(np.array(pos_dict[idx1]), np.array(pos_dict[idx2]))
+            graph['{}{}{}'.format(idx1, graph_sep, idx2)] = distance(np.array(pos_dict[idx1]), np.array(pos_dict[idx2]))
 
     return graph
 
@@ -156,3 +158,12 @@ def save_graph(filename, graph, sep):
         for i in sorted(graph.keys(), key=lambda x: int(x.split(sep)[0])):
             lines.append(sep.join([i, str(graph[i])]))
         fh.write('\n'.join(lines))
+
+
+def model_net_40_to_graph(models_path):
+    for root, dirs, files in os.walk(models_path):
+        for file in files:
+            if file.endswith(suffix):
+                model_net_to_graph(os.path.join(root, file),
+                                   os.path.join(root, file.replace(suffix, '_position.txt')),
+                                   os.path.join(root, file.replace(suffix, '_graph.txt')))
