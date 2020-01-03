@@ -36,8 +36,9 @@ OFF
 """
 
 
-def model_net_40_to_graph(input_file,
-                          output_file,
+def model_net_40_to_graph(off_file,
+                          position_file,
+                          graph_file,
                           off_sep=off_sep,
                           graph_sep=grap_sep,
                           encoding=encoding,
@@ -45,15 +46,16 @@ def model_net_40_to_graph(input_file,
     """
     Convert a ModelNet40 OFF file into a list stored graph.
 
-    :param input_file: input off file
-    :param output_file: output graph file
+    :param off_file: input off file
+    :param graph_file: output graph file
+    :param position_file: vertex position file
     :param off_sep: off separator
     :param graph_sep: graph separator
     :param encoding:
     :param vertex_start: starting vertex from which line
     :return:
     """
-    fh = open(input_file, 'r', encoding=encoding)
+    fh = open(off_file, 'r', encoding=encoding)
     lines = fh.read().rstrip().split('\n')
 
     # vertices faces edges
@@ -66,7 +68,8 @@ def model_net_40_to_graph(input_file,
     pos_dict = index_position(vertices, off_sep)
     graph = faces2graph(pos_dict, faces, graph_sep)
 
-    save_graph(output_file, graph, graph_sep)
+    save_position(position_file, pos_dict, graph_sep)
+    save_graph(graph_file, graph, graph_sep)
 
 
 def index_position(lst, sep):
@@ -123,6 +126,23 @@ def distance(point1, point2):
     return np.linalg.norm(point1 - point2)
 
 
+def save_position(filename, pos_dict, sep):
+    """
+    Save vertex position information into a file.
+    :param filename: position filename
+    :param pos_dict: position dictionary
+    :param sep: separator
+    :return:
+    """
+    with open(filename, 'w') as fh:
+        lines = []
+        lines.append(str(len(pos_dict)))
+        for i in sorted(pos_dict.keys(), key=lambda x: x):
+            line = str(i) + sep + str(pos_dict[i]).replace('[', '').replace(']', '').replace(',', sep)
+            lines.append(line)
+        fh.write('\n'.join(lines))
+
+
 def save_graph(filename, graph, sep):
     """
     Save graph into a file.
@@ -132,6 +152,7 @@ def save_graph(filename, graph, sep):
     :return:
     """
     with open(filename, 'w') as fh:
+        lines = []
         for i in sorted(graph.keys(), key=lambda x: int(x.split(sep)[0])):
-            fh.write(sep.join([i, str(graph[i])]))
-            fh.write('\n')
+            lines.append(sep.join([i, str(graph[i])]))
+        fh.write('\n'.join(lines))
