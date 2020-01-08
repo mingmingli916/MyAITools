@@ -74,6 +74,27 @@ def model_net_to_graph(off_file,
     save_graph(graph_file, graph, graph_sep)
 
 
+def get_points_and_edge(off_file,
+                        off_sep=off_sep,
+                        graph_sep=graph_sep,
+                        encoding=encoding,
+                        vertex_start=vertex_start):
+    fh = open(off_file, 'r', encoding=encoding)
+    lines = fh.read().rstrip().split('\n')
+
+    # vertices faces edges
+    vfe = lines[1].rstrip()
+
+    num_vertices = int(vfe.split(off_sep)[0])
+    vertices = lines[vertex_start:vertex_start + num_vertices]
+    faces = lines[vertex_start + num_vertices:]
+
+    pos_dict = index_position(vertices, off_sep)
+    graph = faces2graph(pos_dict, faces, graph_sep)
+
+    return pos_dict, graph
+
+
 def index_position(lst, sep):
     """
     index a vertex list, starting from 0
@@ -83,7 +104,7 @@ def index_position(lst, sep):
     """
     pos_dict = dict()
     for no, p in enumerate(lst):
-        value = p.split(sep)
+        value = p.strip().split(sep)
         value = [float(v) for v in value]
         pos_dict[no] = value
     return pos_dict
