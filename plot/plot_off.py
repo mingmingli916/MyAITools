@@ -3,6 +3,15 @@ from chyson.parse.model_net_40_to_graph import *
 
 
 def plot(off_file, sep=' '):
+    # 3D show
+    from mpl_toolkits.mplot3d import Axes3D
+
+    # 3D config
+    fig = plt.figure()
+    ax = fig.gca(projection='3d')
+    plt.axis('off')
+
+    # read file
     fh = open(off_file, 'r', encoding=encoding)
     lines = fh.read().rstrip().split('\n')
 
@@ -15,6 +24,17 @@ def plot(off_file, sep=' '):
 
     vertex_dict = index_position(vertices, sep)
 
+    # plot vertices
+    arr = []
+    for v in vertex_dict.values():
+        arr.append(v)
+    arr = np.array(arr)
+    x = arr[:, 0]
+    y = arr[:, 1]
+    z = arr[:, 2]
+    ax.scatter(x, y, z, color='red')
+
+    # plot edges
     all_edge = []
     for face in faces:
         lst = face.split(off_sep)
@@ -31,15 +51,11 @@ def plot(off_file, sep=' '):
 
         all_edge.append(sub_edge)
 
-    fig = plt.figure()
-    ax = fig.gca(projection='3d')
-    plt.axis('off')
-
     for edge in all_edge:
         edge = np.array(edge)
         x = edge[:, 0]
         y = edge[:, 1]
         z = edge[:, 2]
-        ax.plot(x, y, z, color='blue')
+        ax.plot(x, y, z, color='black')
 
     plt.show()
