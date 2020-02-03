@@ -50,7 +50,7 @@ start = '''
       <div><a href="http://chyson.net/ai">AI</a></div>
       <div><a href="http://chyson.net/algorithm">Algorithm</a></div>
       <div><a href="http://chyson.net/notes">Notes</a></div>
-      <div><a href="http://chyson.net/books">Books</a></div>
+      <!-- <div><a href="http://chyson.net/books">Books</a></div> -->
       <div><a href="http://chyson.net/papers">Papers</a></div>
       <div><a href="http://chyson.net/download">Download</a></div>
     </div>
