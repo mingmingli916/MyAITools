@@ -7,9 +7,9 @@ website = 'http://chyson.net'
 black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
 show_list = ['caspp',
-             'deep-learning', 'deep-learning-for-computer-vision-with-python-imagenet',
-             'deep-learning', 'deep-learning-for-computer-vision-with-python-practitioner',
-             'deep-learning', 'deep-learning-for-computer-vision-with-python-starter',
+             'deep-learning-for-computer-vision-with-python-imagenet',
+             'deep-learning-for-computer-vision-with-python-practitioner',
+             'deep-learning-for-computer-vision-with-python-starter',
              'introduction-to-algorithms',
              'reference',
              'linux-bible']
