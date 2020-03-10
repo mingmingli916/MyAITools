@@ -54,8 +54,6 @@ start = '''
     <hr>
     <div class="navigator">
       <div><a href="http://chyson.net">Home</a></div>
-      <div><a href="http://chyson.net/ai">AI</a></div>
-      <div><a href="http://chyson.net/algorithm">Algorithm</a></div>
       <div><a href="http://chyson.net/notes">Notes</a></div>
       <!-- <div><a href="http://chyson.net/books">Books</a></div> -->
       <div><a href="http://chyson.net/papers">Papers</a></div>
