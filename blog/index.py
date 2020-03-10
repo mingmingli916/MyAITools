@@ -167,7 +167,7 @@ def generate_show():
                 for show in show_list:
                     if file.split('.')[0] == show:
                         line += '<li>'
-                        line += '<a href="{}">{}</a>'.format(os.path.join(website, root, file),
+                        line += '<a href="{}">{}</a>'.format(os.path.join(root, file).replace(root, website),
                                                              file.split('.')[0].replace('-', ' ').replace('_', ' '))
                         line += '</li>\n'
     line += '</ul>\n'
