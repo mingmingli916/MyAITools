@@ -6,13 +6,6 @@ website = 'http://chyson.net'
 
 black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
-show_list = ['caspp',
-             'deep-learning', 'deep-learning-for-computer-vision-with-python-imagenet',
-             'deep-learning', 'deep-learning-for-computer-vision-with-python-practitioner',
-             'deep-learning', 'deep-learning-for-computer-vision-with-python-starter',
-             'introduction-to-algorithms',
-             'reference',
-             'linux-bible']
 
 start = '''
 <html>
@@ -100,6 +93,7 @@ def generate_index(base_path, inter_path=''):
     refs = os.listdir(join([base_path, inter_path]))
     refs = sorted(refs, key=str.lower)
 
+    # print(inter_path)
     if inter_path.split(os.path.sep)[-1] in img_list:
         html += '<div class="show">\n'
 
@@ -147,30 +141,30 @@ def generate_index(base_path, inter_path=''):
         html += '</ul>\n'
         html += '</div>'
 
-        if inter_path == '':  # top level
-            show_html = generate_show()
-            html += show_html
+        # if inter_path == '':  # top level
+        #     show_html = generate_show()
+        #     html += show_html
 
     html += end
 
     with open(join([base_path, inter_path, 'index.html']), 'w') as f:
         f.write(html)
+    # print(html)
 
 
 def generate_show():
+    refs = os.listdir(os.path.join(path, 'show'))
+    refs = sorted(refs, key=str.lower)
     line = ''
     line += '<div class="show">\n'
-    line += '<ul>\n'
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            if file.endswith('.html'):
-                for show in show_list:
-                    if file.split('.')[0] == show:
-                        line += '<li>'
-                        line += '<a href="{}">{}</a>'.format(os.path.join(website, root, file), file)
-                        line += '</li>\n'
-    line += '</ul>\n'
-    line += '</div>'
+    for ref in refs:
+        if ref in black_list:
+            continue
+        line += '<div>'
+        line += '<a href="http://chyson.net/show/{}"><img src="/show/{}" width="400px" height="300px"></a>'.format(ref,
+                                                                                                                   ref)
+        line += '</div>\n'
+    line += '</div>\n'
     return line
 
 
