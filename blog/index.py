@@ -12,7 +12,8 @@ show_list = ['csapp',
              'deep-learning-for-computer-vision-with-python-starter',
              'introduction-to-algorithms',
              'reference',
-             'linux-bible']
+             'linux-bible',
+             'deep-learning']
 
 start = '''
 <html>
