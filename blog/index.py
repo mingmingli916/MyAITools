@@ -4,7 +4,7 @@ import re
 path = '/var/www/html'
 website = 'http://chyson.net'
 
-black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org']
+black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org', r'private']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'show']
 show_list = ['csapp',
              'deep-learning-for-computer-vision-with-python-imagenet',
