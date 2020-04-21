@@ -6,7 +6,7 @@ website = 'http://chyson.net'
 
 black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org', r'private']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'fun']
-video_suffix = ['.mp4']
+video_suffix = ['.mp4', '.ogg', '.webm']
 show_list = ['csapp',
              'deep-learning-for-computer-vision-with-python-imagenet',
              'deep-learning-for-computer-vision-with-python-practitioner',
@@ -126,7 +126,11 @@ def generate_index(base_path, inter_path=''):
             video_flag = False
             for suf in video_suffix:
                 if ref.endswith(suf):
-                    html += '<embed src="{}" width="320" height="240"/>'.format(web_path)
+                    html += '<video width="320" height="240" controls="controls">'
+                    html += '<source src="{}" type="video/mp4"/>'
+                    html += '<source src="{}" type="video/ogg"/>'
+                    html += '<source src="{}" type="video/webm"/>'
+                    html += '</video>'
                     video_flag = True
             if not video_flag:
                 html += '<a href="{0}"><img src="{0}" width="400px"></a>'.format(web_path)
