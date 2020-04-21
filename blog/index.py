@@ -62,6 +62,8 @@ start = '''
       <!-- <div><a href="http://chyson.net/books">Books</a></div> -->
       <div><a href="http://chyson.net/papers">Papers</a></div>
       <div><a href="http://chyson.net/download">Download</a></div>
+      <div><a href="http://chyson.net/fun">Fun</a></div>
+
     </div>
     <div style="clear:both;">
     <hr>
