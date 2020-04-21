@@ -123,11 +123,11 @@ def generate_index(base_path, inter_path=''):
 
             web_path = join([website, inter_path, ref])
             html += '<div>'
-            video_flag = False;
+            video_flag = False
             for suf in video_suffix:
                 if ref.endswith(suf):
-                    html += '<object data="{}" width="320" height="240">'.format(web_path)
-                    video_flag = True;
+                    html += '<object data="{}" width="320" height="240"></object>'.format(web_path)
+                    video_flag = True
             if not video_flag:
                 html += '<a href="{0}"><img src="{0}" width="400px"></a>'.format(web_path)
             html += '</div>\n'
