@@ -126,7 +126,7 @@ def generate_index(base_path, inter_path=''):
             video_flag = False
             for suf in video_suffix:
                 if ref.endswith(suf):
-                    html += '<video width="320" height="240" autoplay="autoplay">'
+                    html += '<video width="320" height="240" controls="controls>'
                     html += '<source src="{}" type="video/mp4"/>'
                     html += '<source src="{}" type="video/ogg"/>'
                     html += '<source src="{}" type="video/webm"/>'
