@@ -13,7 +13,10 @@ show_list = ['csapp',
              'introduction-to-algorithms',
              'reference',
              'linux-bible',
-             'deep-learning']
+             'deep-learning',
+             'resources',
+             'python3',
+             'latex']
 
 start = '''
 <html>
