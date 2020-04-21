@@ -6,6 +6,7 @@ website = 'http://chyson.net'
 
 black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org', r'private']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'fun']
+video_suffix = ['.mp4']
 show_list = ['csapp',
              'deep-learning-for-computer-vision-with-python-imagenet',
              'deep-learning-for-computer-vision-with-python-practitioner',
@@ -122,7 +123,13 @@ def generate_index(base_path, inter_path=''):
 
             web_path = join([website, inter_path, ref])
             html += '<div>'
-            html += '<a href="{0}"><img src="{0}" width="400px"></a>'.format(web_path)
+            video_flag = False;
+            for suf in video_suffix:
+                if ref.endswith(suf):
+                    html += '<object data="{}" width="320" height="240">'.format(web_path)
+                    video_flag = True;
+            if not video_flag:
+                html += '<a href="{0}"><img src="{0}" width="400px"></a>'.format(web_path)
             html += '</div>\n'
         html += '</div>'
     else:
