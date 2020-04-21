@@ -126,7 +126,7 @@ def generate_index(base_path, inter_path=''):
             video_flag = False
             for suf in video_suffix:
                 if ref.endswith(suf):
-                    html += '<embed src="{}" width="320" height="240"></object>'.format(web_path)
+                    html += '<embed src="{}" width="320" height="240"/>'.format(web_path)
                     video_flag = True
             if not video_flag:
                 html += '<a href="{0}"><img src="{0}" width="400px"></a>'.format(web_path)
