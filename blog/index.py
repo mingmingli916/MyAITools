@@ -70,9 +70,7 @@ start = '''
     <div style="clear:both;">
     <hr>
     </div>
-    <div>
-    <iframe src="https://github.com/mikechyson" width="300" height="400" frameborder="1" acrolling="auto"><iframe>
-    </div>
+    <iframe src="https://github.com/mikechyson" width="100%" height="400" frameborder="1" acrolling="auto"><iframe>
 '''
 
 end = '''
