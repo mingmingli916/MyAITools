@@ -84,7 +84,7 @@ end = '''
     </div>
 
     <div>
-      <iframe src="http://chyson.net/notes/ai/deep-learning.html" width="100%" height="400" frameborder="1" scrolling="auto" sandbox="allow-scripts></iframe>
+      <iframe src="http://chyson.net/notes/ai/deep-learning.html" width="100%" height="400" frameborder="1" scrolling="auto"></iframe>
     </div>
     
   </body>
