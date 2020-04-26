@@ -73,9 +73,7 @@ start = '''
 '''
 
 end = '''
-    <div>
-      <iframe src="http://chyson.net/notes/ai/deep-learning.html" width="100%" height="400" frameborder="1" scrolling="auto" sandbox="allow-scripts></iframe>
-    </div>
+
     <div id="info">
       <hr>
       <p>Name: Mingming Li (Mike Chyson)</p>
@@ -85,6 +83,10 @@ end = '''
       <!--<p>Motto: THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>-->
     </div>
 
+    <div>
+      <iframe src="http://chyson.net/notes/ai/deep-learning.html" width="100%" height="400" frameborder="1" scrolling="auto" sandbox="allow-scripts></iframe>
+    </div>
+    
   </body>
 </html>
 '''
