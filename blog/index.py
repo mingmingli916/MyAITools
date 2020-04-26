@@ -73,7 +73,7 @@ start = '''
 '''
 
 end = '''
-    <iframe src="https://www.google.com/" width="100%" height="400" frameborder="1" scrolling="auto"></iframe>
+    <iframe src="http://chyson.net/fun/" width="100%" height="400" frameborder="1" scrolling="auto" sandbox="allow-scripts></iframe>
 
     <div id="info">
       <hr>
