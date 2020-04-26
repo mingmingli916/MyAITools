@@ -73,7 +73,7 @@ start = '''
 '''
 
 end = '''
-    <iframe src="http://chyson.net/fun/" width="100%" height="400" frameborder="1" scrolling="auto" sandbox="allow-scripts></iframe>
+    <iframe src="http://chyson.net/notes/ai/deep-learning.html" width="100%" height="400" frameborder="1" scrolling="auto" sandbox="allow-scripts></iframe>
 
     <div id="info">
       <hr>
