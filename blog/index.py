@@ -17,7 +17,8 @@ show_list = ['csapp',
              'deep-learning',
              'resources',
              'python3',
-             'latex']
+             'latex',
+             'c']
 
 start = '''
 <html>
