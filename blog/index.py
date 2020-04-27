@@ -65,6 +65,7 @@ start = '''
       <div><a href="http://chyson.net/papers">Papers</a></div>
       <div><a href="http://chyson.net/download">Download</a></div>
       <div><a href="http://chyson.net/fun">Fun</a></div>
+      <div><a href="http://chyson.net/junjun">Junjun</a></div>
 
     </div>
     <div style="clear:both;">
@@ -83,9 +84,11 @@ end = '''
       <!--<p>Motto: THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>-->
     </div>
 
+    <!--
     <div>
       <iframe src="http://chyson.net/notes/ai/deep-learning.html" width="100%" height="400" frameborder="1" scrolling="auto"></iframe>
     </div>
+    -->
     
   </body>
 </html>
