@@ -2,7 +2,7 @@ import os
 import re
 
 path = '/var/www/html'
-website = 'http://chyson.net'
+website = 'https://chyson.net'
 
 black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org', r'private']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'fun']
@@ -59,13 +59,13 @@ start = '''
     <h1 style="text-align:center">Mike Chyson's Blog</h1>
     <hr>
     <div class="navigator">
-      <div><a href="http://chyson.net">Home</a></div>
-      <div><a href="http://chyson.net/notes">Notes</a></div>
-      <!-- <div><a href="http://chyson.net/books">Books</a></div> -->
-      <div><a href="http://chyson.net/papers">Papers</a></div>
-      <div><a href="http://chyson.net/download">Download</a></div>
-      <div><a href="http://chyson.net/fun">Fun</a></div>
-      <div><a href="http://chyson.net/junjun">Junjun</a></div>
+      <div><a href="https://chyson.net">Home</a></div>
+      <div><a href="https://chyson.net/notes">Notes</a></div>
+      <!-- <div><a href="https://chyson.net/books">Books</a></div> -->
+      <div><a href="https://chyson.net/papers">Papers</a></div>
+      <div><a href="https://chyson.net/download">Download</a></div>
+      <div><a href="https://chyson.net/fun">Fun</a></div>
+      <div><a href="https://chyson.net/junjun">Junjun</a></div>
 
     </div>
     <div style="clear:both;">
@@ -86,7 +86,7 @@ end = '''
 
     <!--
     <div>
-      <iframe src="http://chyson.net/notes/ai/deep-learning.html" width="100%" height="400" frameborder="1" scrolling="auto"></iframe>
+      <iframe src="https://chyson.net/notes/ai/deep-learning.html" width="100%" height="400" frameborder="1" scrolling="auto"></iframe>
     </div>
     -->
     
