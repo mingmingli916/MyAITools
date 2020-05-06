@@ -56,7 +56,7 @@ start = '''
 
   <body>
 
-    <h1 style="text-align:center">Mike Chyson's Blog</h1>
+    <!--<h1 style="text-align:center">Mike Chyson's Blog</h1>-->
     <hr>
     <div class="navigator">
       <div><a href="https://chyson.net">Home</a></div>
