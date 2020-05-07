@@ -18,7 +18,9 @@ show_list = ['computer-systems-a-programmers-perspective',
              'resources',
              'python3',
              'latex',
-             'c']
+             'c',
+             'learning-gnu-emacs',
+             'mariadb']
 show_list = sorted(show_list)
 
 start = '''
