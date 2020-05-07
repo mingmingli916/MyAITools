@@ -4,7 +4,7 @@ import re
 path = '/var/www/html'
 website = 'https://chyson.net'
 
-black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org', r'private']
+black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org', r'private$']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'fun']
 video_suffix = ['.mp4', '.ogg', '.webm']
 show_list = ['csapp',
