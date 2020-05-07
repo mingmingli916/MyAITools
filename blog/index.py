@@ -19,6 +19,7 @@ show_list = ['computer-systems-a-programmers-perspective',
              'python3',
              'latex',
              'c']
+show_list = sorted(show_list)
 
 start = '''
 <html>
