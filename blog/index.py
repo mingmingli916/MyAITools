@@ -186,15 +186,14 @@ def generate_show():
     line = ''
     line += '<div class="show">\n'
     line += '<ul>\n'
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            if file.endswith('.html'):
-                for show in show_list:
-                    if file.split('.')[0] == show:
-                        line += '<li>'
-                        line += '<a href="{}">{}</a>'.format(os.path.join(root, file).replace(path, website),
-                                                             file.split('.')[0].replace('-', ' ').replace('_', ' '))
-                        line += '</li>\n'
+    for show in show_list:
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                if file.endswith('.html') and file.split('.')[0] == show:
+                    line += '<li>'
+                    line += '<a href="{}">{}</a>'.format(os.path.join(root, file).replace(path, website),
+                                                         file.split('.')[0].replace('-', ' ').replace('_', ' '))
+                    line += '</li>\n'
     line += '</ul>\n'
     line += '</div>'
     return line
