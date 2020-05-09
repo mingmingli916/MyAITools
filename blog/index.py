@@ -13,7 +13,7 @@ show_list = ['computer-systems-a-programmers-perspective',
              'deep-learning-for-computer-vision-with-python-starter',
              'introduction-to-algorithms',
              'latex-reference',
-             'python-reference'
+             'python-reference',
              'linux-bible',
              'deep-learning',
              'resources',
