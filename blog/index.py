@@ -85,11 +85,12 @@ end = '''
     <div id="info">
       <hr>
       <p>Name: Mingming Li (Mike Chyson)</p>
-      <p>Gender: Male</p>
+      <!--<p>Gender: Male</p>-->
       <p>Email: chyson@aliyun.com (mike.chyson@gmail.com)</p>
       <p>GitHub: <a class="github" href="https://github.com/mikechyson/">Mike Chyson</a></p>
       <!--<p>LeetCode: <a href="https://leetcode.com/user3394qq/"> Mike Chyson</a></p>-->
       <!--<p>Motto: THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>-->
+      <p>LinkedIn: https://www.linkedin.com/in/mike-chyson-2b743214a/</p>
     </div>
 
     <!--
