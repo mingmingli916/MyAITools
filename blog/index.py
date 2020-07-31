@@ -91,6 +91,8 @@ end = '''
       <!--<p>LeetCode: <a href="https://leetcode.com/user3394qq/"> Mike Chyson</a></p>-->
       <!--<p>Motto: THE BEST WAY TO LEARN SOMETHING IS TO USE IT!</p>-->
       <p>LinkedIn: https://www.linkedin.com/in/mike-chyson-2b743214a/</p>
+      <p>School: Hebei University</p>
+      <p>Facebook: https://www.facebook.com/profile.php?id=100043385618343</p>
     </div>
 
     <!--
