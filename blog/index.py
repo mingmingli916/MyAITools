@@ -72,7 +72,7 @@ start = '''
       <div><a href="https://chyson.net/papers">Papers</a></div>
       <div><a href="https://chyson.net/download">Download</a></div>
       <div><a href="https://chyson.net/fun">Fun</a></div>
-      <div><a href="https://chyson.net/junjun">Junjun</a></div>
+      <!-- <div><a href="https://chyson.net/junjun">Junjun</a></div> -->
 
     </div>
     <div style="clear:both;">
