@@ -7,23 +7,25 @@ website = 'https://chyson.net'
 black_list = [r'index.html', r'.git', r'.aes', r'.gitignore', r'\W*.md', r'\W*.org', r'private$']
 img_list = ['pics', 'pic', 'pictures', 'picture', 'fun']
 video_suffix = ['.mp4', '.ogg', '.webm']
-show_list = ['computer-systems-a-programmers-perspective',
-             'deep-learning-for-computer-vision-with-python-imagenet',
-             'deep-learning-for-computer-vision-with-python-practitioner',
-             'deep-learning-for-computer-vision-with-python-starter',
-             'introduction-to-algorithms',
-             'latex-reference',
-             'python-reference',
-             'linux-bible',
-             'deep-learning',
-             'resources',
-             'python3',
-             'latex',
-             'c',
-             'learning-gnu-emacs',
-             'mariadb',
-             'pro-git',
-             'what-life-should-meant-to-you']
+show_list = [
+    'computer-systems-a-programmers-perspective',
+    'deep-learning-for-computer-vision-with-python-imagenet',
+    'deep-learning-for-computer-vision-with-python-practitioner',
+    'deep-learning-for-computer-vision-with-python-starter',
+    'introduction-to-algorithms',
+    # 'latex-reference',
+    # 'python-reference',
+    'linux-bible',
+    'deep-learning',
+    # 'resources',
+    # 'python3',
+    # 'latex',
+    'c',
+    'learning-gnu-emacs',
+    'mariadb',
+    # 'pro-git',
+    # 'what-life-should-meant-to-you'
+]
 show_list = sorted(show_list)
 
 start = '''
