@@ -13,18 +13,18 @@ show_list = [
     'deep-learning-for-computer-vision-with-python-practitioner',
     'deep-learning-for-computer-vision-with-python-starter',
     'introduction-to-algorithms',
-    # 'latex-reference',
+    'latex-reference',
     # 'python-reference',
     'linux-bible',
     'deep-learning',
     # 'resources',
     # 'python3',
-    # 'latex',
+    'latex',
     'c',
     'learning-gnu-emacs',
     'mariadb',
     # 'pro-git',
-    # 'what-life-should-meant-to-you'
+    'what-life-should-meant-to-you'
 ]
 show_list = sorted(show_list)
 
