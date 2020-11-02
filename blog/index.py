@@ -29,7 +29,7 @@ show_list = [
 show_list = sorted(show_list)
 
 start = '''
-<html>
+<html style="color: rgba(255, 255, 255,0.8);">
 
   <head>
     <meta name="author" content="Mike Chyson">
@@ -40,9 +40,11 @@ start = '''
 
     <style type="text/css">
       a:link {text-decoration:none;}
-      a:visited {color: #802A2A;text-decoration:none;}
-      a:hover {background-color: #ddd; text-decoration:none;}
-      a:active {color: #0000ff;text-decoration:none;}
+      a:visited {color: rgba(255, 255, 255,0.8);text-decoration:none;}
+      a:hover {background-color: rgb(250, 202, 46); text-decoration:none;border-radius:5px;color#000}
+      a:active {color: rgba(255, 255, 255,0.8);text-decoration:none;}
+
+      ul li{list-style-type:square}
       
       .navigator div{float: left;
       margin: 20px;
@@ -62,9 +64,9 @@ start = '''
 
   </head>
 
-  <body>
-
-    <!--<h1 style="text-align:center">Mike Chyson's Blog</h1>-->
+  <body style="background:#000;margin:20px 40px">
+    <div width: 600px;margin:0 auto>
+    <h1 style="color: rgb(250, 202, 46);">Mike Chyson's Blog</h1>
     <hr>
     <div class="navigator">
       <div><a href="https://chyson.net">Home</a></div>
@@ -102,7 +104,7 @@ end = '''
       <iframe src="https://chyson.net/notes/ai/deep-learning.html" width="100%" height="400" frameborder="1" scrolling="auto"></iframe>
     </div>
     -->
-    
+    </div>
   </body>
 </html>
 '''
