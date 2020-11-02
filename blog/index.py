@@ -65,7 +65,7 @@ start = '''
   </head>
 
   <body style="background:#000;margin:20px 40px">
-    <div width: 600px;margin:0 "auto">
+    <div width: 600px;margin:0 auto">
     <h1 style="color: rgb(250, 202, 46);">Mike Chyson's Blog</h1>
     <hr>
     <div class="navigator">
