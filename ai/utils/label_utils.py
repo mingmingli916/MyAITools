@@ -1,10 +1,10 @@
 import numpy as np
-import os
+import os_
 
 
 def get_labels(image_paths):
     # suppose {dir}/{label}/{image}
-    return [p.split(os.path.sep)[-2] for p in image_paths]
+    return [p.split(os_.path.sep)[-2] for p in image_paths]
 
 
 def unique_labels(image_paths):

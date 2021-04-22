@@ -1,4 +1,4 @@
-import os
+import os_
 import re
 
 path = '/var/www/html'
@@ -84,23 +84,23 @@ def join(lst):
     """
     if '' in lst:
         lst.remove('')
-    return os.path.sep.join(lst)
+    return os_.path.sep.join(lst)
 
 
 def generate_index(base_path, inter_path=''):
     html = start
 
-    refs = os.listdir(join([base_path, inter_path]))
+    refs = os_.listdir(join([base_path, inter_path]))
     refs = sorted(refs, key=str.lower)
 
     # print(inter_path)
-    if inter_path.split(os.path.sep)[-1] in img_list:
+    if inter_path.split(os_.path.sep)[-1] in img_list:
         html += '<div class="show">\n'
 
         for ref in refs:
 
             # recursive generate index
-            if os.path.isdir(join([base_path, inter_path, ref])):
+            if os_.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
             blocked = False
@@ -121,7 +121,7 @@ def generate_index(base_path, inter_path=''):
 
         for ref in refs:
 
-            if os.path.isdir(join([base_path, inter_path, ref])):
+            if os_.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
             blocked = False
@@ -153,7 +153,7 @@ def generate_index(base_path, inter_path=''):
 
 
 def generate_show():
-    refs = os.listdir(os.path.join(path, 'show'))
+    refs = os_.listdir(os_.path.join(path, 'show'))
     refs = sorted(refs, key=str.lower)
     line = ''
     line += '<div class="show">\n'

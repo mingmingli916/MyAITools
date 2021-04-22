@@ -1,4 +1,4 @@
-import os
+import os_
 from keras.callbacks import Callback
 
 
@@ -14,7 +14,7 @@ class EpochCheckpoint(Callback):
     def on_epoch_end(self, epoch, logs={}):
         # check to see if the model should be serialized to disk
         if (self.int_epoch + 1) % self.every == 0:
-            p = os.path.sep.join([self.output_path, 'epoch_{}.hdf5'.format(self.int_epoch + 1)])
+            p = os_.path.sep.join([self.output_path, 'epoch_{}.hdf5'.format(self.int_epoch + 1)])
             self.model.save(p, overwrite=True)
 
         # increment the internal epoch counter

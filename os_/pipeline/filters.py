@@ -1,9 +1,9 @@
 import sys
 
-import os
+import os_
 from chyson.decorators.coroutine import coroutine
-from chyson.os.pipeline.acquirer import get_files
-from chyson.os.pipeline.reporter import reporter
+from chyson.os_.pipeline.acquirer import get_files
+from chyson.os_.pipeline.reporter import reporter
 
 
 @coroutine
@@ -18,7 +18,7 @@ def suffix_matcher(receiver, suffixes):
 def size_matcher(receiver, minimum=None, maximum=None):
     while True:
         filename = (yield)
-        size = os.path.getsize(filename)
+        size = os_.path.getsize(filename)
         if ((minimum is None or size >= minimum) and
                 (maximum is None or size <= maximum)):
             receiver.send(filename)

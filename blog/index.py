@@ -1,4 +1,4 @@
-import os
+import os_
 import re
 
 path = '/var/www/html'
@@ -119,22 +119,22 @@ def join(lst):
     """
     if '' in lst:
         lst.remove('')
-    return os.path.sep.join(lst)
+    return os_.path.sep.join(lst)
 
 
 def generate_index(base_path, inter_path=''):
     html = start
 
-    refs = os.listdir(join([base_path, inter_path]))
+    refs = os_.listdir(join([base_path, inter_path]))
     refs = sorted(refs, key=str.lower)
 
-    if inter_path.split(os.path.sep)[-1] in img_list:
+    if inter_path.split(os_.path.sep)[-1] in img_list:
         html += '<div class="show">\n'
 
         for ref in refs:
 
             # recursive generate index
-            if os.path.isdir(join([base_path, inter_path, ref])):
+            if os_.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
             blocked = False
@@ -165,7 +165,7 @@ def generate_index(base_path, inter_path=''):
 
         for ref in refs:
 
-            if os.path.isdir(join([base_path, inter_path, ref])):
+            if os_.path.isdir(join([base_path, inter_path, ref])):
                 generate_index(base_path, join([inter_path, ref]))
 
             blocked = False
@@ -200,11 +200,11 @@ def generate_show():
     line += '<div class="show">\n'
     line += '<ul>\n'
     for show in show_list:
-        for root, dirs, files in os.walk(path):
+        for root, dirs, files in os_.walk(path):
             for file in files:
                 if file.endswith('.html') and file.split('.')[0] == show:
                     line += '<li>'
-                    line += '<a href="{}">{}</a>'.format(os.path.join(root, file).replace(path, website),
+                    line += '<a href="{}">{}</a>'.format(os_.path.join(root, file).replace(path, website),
                                                          file.split('.')[0].replace('-', ' ').replace('_', ' '))
                     line += '</li>\n'
     line += '</ul>\n'

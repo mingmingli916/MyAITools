@@ -1,4 +1,4 @@
-import os
+import os_
 
 import numpy as np
 
@@ -61,7 +61,7 @@ class ImageNetHelper:
             # construct the full path to the training image, then grab the word ID from the path
             # and use it to determine the integer class label
             # {imagenet}Data/CLS-LOC/train/n02097130/n02097130_4602.JPEG
-            path = os.path.sep.join([self.config.IMAGES_PATH, 'train', '{}.JPEG'.format(partial_path)])
+            path = os_.path.sep.join([self.config.IMAGES_PATH, 'train', '{}.JPEG'.format(partial_path)])
             word_id = partial_path.split('/')[0]
             label = self.label_mappings[word_id]
 
@@ -96,7 +96,7 @@ class ImageNetHelper:
                 continue
 
             # construct the full path to the validation image, then update the respective paths and labels lists
-            path = os.path.sep.join([self.config.IMAGES_PATH, 'val', '{}.JPEG'.format(partial_path)])
+            path = os_.path.sep.join([self.config.IMAGES_PATH, 'val', '{}.JPEG'.format(partial_path)])
             paths.append(path)
             labels.append(int(label) - 1)
 
@@ -114,7 +114,7 @@ class ImageNetHelper:
         for row in test_filenames:
             partial_path, image_no = row.strip().split(' ')
             # construct the full path to the test image
-            path = os.path.sep.join([self.config.IMAGES_PATH, 'test', '{}.JPEG'.format(partial_path)])
+            path = os_.path.sep.join([self.config.IMAGES_PATH, 'test', '{}.JPEG'.format(partial_path)])
             paths.append(path)
 
         return np.array(paths)

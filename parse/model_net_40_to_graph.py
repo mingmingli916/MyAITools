@@ -1,4 +1,4 @@
-import os
+import os_
 import numpy as np
 
 PREFIX = 'OFF'
@@ -182,9 +182,9 @@ def save_graph(filename, graph, sep):
 
 
 def model_net_40_to_graph(models_path):
-    for root, dirs, files in os.walk(models_path):
+    for root, dirs, files in os_.walk(models_path):
         for file in files:
             if file.endswith(suffix):
-                model_net_to_graph(os.path.join(root, file),
-                                   os.path.join(root, file.replace(suffix, '_position.txt')),
-                                   os.path.join(root, file.replace(suffix, '_graph.txt')))
+                model_net_to_graph(os_.path.join(root, file),
+                                   os_.path.join(root, file.replace(suffix, '_position.txt')),
+                                   os_.path.join(root, file.replace(suffix, '_graph.txt')))

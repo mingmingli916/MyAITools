@@ -2,10 +2,10 @@ import argparse
 import base64
 import sys
 
-import os
+import os_
 from Crypto.Cipher import AES
 
-default_file = os.path.sep.join([os.environ['HOME'], 'notes', '.aes'])
+default_file = os_.path.sep.join([os_.environ['HOME'], 'notes', '.aes'])
 
 # commandline arguments
 ap = argparse.ArgumentParser(description='Encrypt or decrypt to save or display something that is secret.')
@@ -75,7 +75,7 @@ if args['mode'] == 'enc':
         if args['input'] is not None:
             fh.write(enc(args['input']))
         elif args['file'] is not None:
-            assert os.path.exists(args['file']), 'the file does not exist'
+            assert os_.path.exists(args['file']), 'the file does not exist'
             with open(args['file']) as f:
                 for line in f:
                     fh.write(enc(line))

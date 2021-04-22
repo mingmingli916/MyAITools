@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import os
+import os_
 
 
 class SimpleDatasetLoader:
@@ -23,7 +23,7 @@ class SimpleDatasetLoader:
             # /path/to/dataset/{class}/{image}.jpg
             # Based on this hierarchical directory structure, we can keep our datasets neat and organized.
             image = cv2.imread(image_path)
-            label = image_path.split(os.path.sep)[-2]  # class
+            label = image_path.split(os_.path.sep)[-2]  # class
 
             # check to see if our preprocessors are not None
             if self.preprocessors is not None:

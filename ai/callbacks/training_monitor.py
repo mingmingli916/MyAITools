@@ -2,7 +2,7 @@ import json
 
 import matplotlib.pyplot as plt
 import numpy as np
-import os
+import os_
 from keras.callbacks import BaseLogger
 
 
@@ -21,7 +21,7 @@ class TrainingMonitor(BaseLogger):
 
         # if the JSON history path exist, load the training history
         if self.json_path is not None:
-            if os.path.exists(self.json_path):
+            if os_.path.exists(self.json_path):
                 self.H = json.loads(open(self.json_path).read())
 
                 # check to see if a starting epoch was supplied

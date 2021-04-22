@@ -1,6 +1,6 @@
 import numpy as np
 import glob
-import os
+import os_
 
 
 class AgeGenderHelper:
@@ -78,7 +78,7 @@ class AgeGenderHelper:
         labels = []
 
         # grab the paths in the folds files
-        fold_paths = os.path.join(self.config.LABELS_PATH, '*.txt')
+        fold_paths = os_.path.join(self.config.LABELS_PATH, '*.txt')
         fold_paths = glob.glob(fold_paths)
 
         for fold_path in fold_paths:
@@ -95,7 +95,7 @@ class AgeGenderHelper:
 
                 # construct the path to the image path and build the class label
                 p = 'landmark_aligned_face.{}.{}'.format(face_id, image_path)
-                p = os.path.join(self.config.IMAGES_PATH, user_id, p)
+                p = os_.path.join(self.config.IMAGES_PATH, user_id, p)
                 # adience/aligned/100003415@N08/landmark_aligned_face.2174.9523333835_c7887c3fde_o.jpg
                 label = self.to_label(age, gender)
 

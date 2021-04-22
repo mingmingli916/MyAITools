@@ -1,5 +1,5 @@
 import sys
-import os
+import os_
 import glob
 
 magic_path = '/home/hack/PycharmProjects/packages/chyson/os/magic/magic_file_type.py'
@@ -7,16 +7,16 @@ magic_path = '/home/hack/PycharmProjects/packages/chyson/os/magic/magic_file_typ
 if sys.platform.startswith("win"):
     def get_files(names):
         for name in names:
-            if os.path.isfile(name):
+            if os_.path.isfile(name):
                 yield name
             else:
                 for file in glob.iglob(name):
-                    if not os.path.isfile(file):
+                    if not os_.path.isfile(file):
                         continue
                     yield file
 else:
     def get_files(names):
-        return (file for file in names if os.path.isfile(file))
+        return (file for file in names if os_.path.isfile(file))
 
 
 def load_modules():
@@ -27,14 +27,14 @@ def load_modules():
     """
     modules = []
     # for name in os.listdir(os.path.dirname(__file__) or '.'):
-    for name in os.listdir(os.path.dirname(magic_path)):
+    for name in os_.listdir(os_.path.dirname(magic_path)):
         if name.endswith('.py') and 'magic' in name.lower():
             filename = name
-            name = os.path.splitext(name)[0]  # remove extension
+            name = os_.path.splitext(name)[0]  # remove extension
             if name.isidentifier() and name not in sys.modules:  # isidentifier: if a string is a valid identifier
                 fh = None
                 try:
-                    fh = open(os.path.join(os.path.dirname(magic_path), filename), 'r', encoding='utf8')
+                    fh = open(os_.path.join(os_.path.dirname(magic_path), filename), 'r', encoding='utf8')
                     code = fh.read()
                     # When we call type() it returns the type object
                     # of the object it is given. So if we called type(1) we would get int back. If we
@@ -66,9 +66,9 @@ def load_module_v2():
     # One theoretical problem with this approach is that it is potentially insecure.
     # The name variable could begin with sys; and be followed by some destructive code.
     modules = []
-    for name in os.listdir(os.path.dirname(__file__) or '.'):
+    for name in os_.listdir(os_.path.dirname(__file__) or '.'):
         if name.endswith('.py') and 'magic' in name.lower():
-            name = os.path.splitext(name)[0]  # remove extension
+            name = os_.path.splitext(name)[0]  # remove extension
             if name.isidentifier() and name not in sys.modules:
                 try:
                     exec("import " + name)
@@ -82,9 +82,9 @@ def load_module_v3():
     # This is the easiest way to dynamically import modules and is slightly safer
     # than using exec()
     modules = []
-    for name in os.listdir(os.path.dirname(__file__) or '.'):
+    for name in os_.listdir(os_.path.dirname(__file__) or '.'):
         if name.endswith('.py') and 'magic' in name.lower():
-            name = os.path.splitext(name)[0]  # remove extension
+            name = os_.path.splitext(name)[0]  # remove extension
             if name.isidentifier() and name not in sys.modules:
                 try:
                     module = __import__(name)
@@ -149,7 +149,7 @@ def get_file_types(file_list):
             fh = open(file, 'rb')
             magic = fh.read(1000)
             for get_file_type in get_file_type_functions:
-                filetype = get_file_type(magic, os.path.splitext(file)[1])
+                filetype = get_file_type(magic, os_.path.splitext(file)[1])
                 if filetype is not None:
                     print('{0:.<20}{1}'.format(filetype, file))
                     break

@@ -1,5 +1,5 @@
 import h5py
-import os
+import os_
 
 
 class HDF5DatasetWriter:
@@ -11,7 +11,7 @@ class HDF5DatasetWriter:
         :param buf_size: controls the size of in-memory buffer.
         """
         # check to see if the output path exists, and if so, raise an exception
-        if os.path.exists(output_path):
+        if os_.path.exists(output_path):
             raise ValueError('The supplied "output_path" already '
                              'exists and cannot be overwritten. Manually delete '
                              'the file before continuing.', output_path)

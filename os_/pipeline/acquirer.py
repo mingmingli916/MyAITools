@@ -1,4 +1,4 @@
-import os
+import os_
 from chyson.decorators.coroutine import coroutine
 
 
@@ -11,9 +11,9 @@ def get_files(receiver):
     """
     while True:
         path = (yield)
-        if os.path.isfile(path):
-            receiver.send(os.path.abspath(path))
+        if os_.path.isfile(path):
+            receiver.send(os_.path.abspath(path))
         else:
-            for root, dirs, files in os.walk(path):
+            for root, dirs, files in os_.walk(path):
                 for filename in files:
-                    receiver.send(os.path.abspath(os.path.join(root, filename)))
+                    receiver.send(os_.path.abspath(os_.path.join(root, filename)))
